@@ -78,13 +78,6 @@ use({
     require('user/plugins/indent-blankline')
   end,
 })
--- Add a dashboard.
-use({
-  'glepnir/dashboard-nvim',
-  config = function()
-    require('user/plugins/dashboard-nvim')
-  end
-})
 
 -- Commenting support.
 use('tpope/vim-commentary')
@@ -200,6 +193,26 @@ use({
   config = function()
     require('user/plugins/nvim-tree')
   end,
+})
+
+-- Git integration.
+use({
+  'lewis6991/gitsigns.nvim',
+  config = function()
+    require('gitsigns').setup()
+    vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
+    vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
+    vim.keymap.set('n', 'gs', ':Gitsigns stage_hunk<CR>')
+    vim.keymap.set('n', 'gS', ':Gitsigns undo_stage_hunk<CR>')
+    vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>')
+    vim.keymap.set('n', 'gb', ':Gitsigns blame_line<CR>')
+  end,
+})
+
+-- Git commands.
+use({
+  'tpope/vim-fugitive',
+  requires = 'tpope/vim-rhubarb',
 })
 
 -- Automatically set up your configuration after cloning packer.nvim
