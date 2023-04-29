@@ -1,0 +1,146 @@
+#-----------------------------------------------------
+# configs
+#-----------------------------------------------------
+
+# load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
+# extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
+# these are loaded first, second, and third, respectively.
+_load_settings() {
+  _dir="$1"
+  if [ -d "$_dir" ]; then
+    if [ -d "$_dir/pre" ]; then
+      for config in "$_dir"/pre/**/*~*.zwc(N-.); do
+        . $config
+      done
+    fi
+
+    for config in "$_dir"/**/*(N-.); do
+      case "$config" in
+        "$_dir"/(pre|post)/*|*.zwc)
+          :
+          ;;
+        *)
+          . $config
+          ;;
+      esac
+    done
+
+    if [ -d "$_dir/post" ]; then
+      for config in "$_dir"/post/**/*~*.zwc(N-.); do
+        . $config
+      done
+    fi
+  fi
+}
+_load_settings "$HOME/.zsh/configs"
+
+#-----------------------------------------------------
+# tmux
+#-----------------------------------------------------
+# auto attach new shell to tmux sesson
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tmux
+  fi
+}
+
+ensure_tmux_is_running
+
+#-----------------------------------------------------
+# prompt
+#-----------------------------------------------------
+#Color shortcuts
+RED=$fg[red]
+YELLOW=$fg[yellow]
+GREEN=$fg[green]
+WHITE=$fg[white]
+BLUE=$fg[blue]
+MAGENTA=$fg[magenta]
+CYAN=$fg[cyan]
+RED_BOLD=$fg_bold[red]
+YELLOW_BOLD=$fg_bold[yellow]
+GREEN_BOLD=$fg_bold[green]
+WHITE_BOLD=$fg_bold[white]
+BLUE_BOLD=$fg_bold[blue]
+RESET_COLOR=$reset_color
+DIMMED=$fg[gray]
+ORANGE="#d7875f"
+
+# Format for git_prompt_info()
+ZSH_THEME_GIT_PROMPT_PREFIX=""
+ZSH_THEME_GIT_PROMPT_SUFFIX=""
+
+# Format for parse_git_dirty()
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$YELLOW%}(*)"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+# Format for git_prompt_ahead()
+ZSH_THEME_GIT_PROMPT_AHEAD=" %{$RED%}(!)"
+
+# Format for git_prompt_long_sha() and git_prompt_short_sha()
+ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$YELLOW%}[%{$YELLOW%}"
+ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$YELLOW%}]"
+
+# Only display host if this is via SSH
+if [[ -n $SSH_CONNECTION ]]; then
+    sshing="%n@%m"
+else
+    sshing=""
+fi
+
+PROMPT='
+%{$BLUE%}$sshing%{$YELLOW%} %{$BLUE%}${PWD/#$HOME/~}%{$RESET_COLOR%} \
+%{$YELLOW%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)$(git_prompt_short_sha)$(parse_git_dirty)%{$RESET_COLOR%}
+%(?.%{$fg[yellow]%}.%{$fg[red]%})%B$%b '
+
+#-----------------------------------------------------
+# FZF - Fuzzy Finder
+#-----------------------------------------------------
+# fzf via Homebrew
+if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=fg:#979eab,bg:#292c34,hl:#57b6c2
+ --color=fg+:#979eab,bg+:#292c34,hl+:#e5bf7b
+ --color=info:#979eab,prompt:#e06c75,pointer:#c678dd
+ --color=marker:#98c379,spinner:#c678dd,header:#61afef
+--no-preview
+--color=dark'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#-----------------------------------------------------
+# path
+#-----------------------------------------------------
+typeset -U path cdpath fpath
+path=(
+  $HOME/.local/bin
+  $HOME/.bin
+  $HOME/.composer/vendor/bin
+  $HOME/.cargo/bin
+  /opt/homebrew/opt/openssl@1.1/bin
+  $path
+)
+export path
+
+#-----------------------------------------------------
+# openssl
+#-----------------------------------------------------
+export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
+
+#-----------------------------------------------------
+# aliases
+#-----------------------------------------------------
+[[ -f ~/.aliases ]] && source ~/.aliases

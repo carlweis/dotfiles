@@ -1,0 +1,38 @@
+#!/bin/bash
+
+DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+# kitty
+rm -rf $HOME/.config/kitty
+ln -s $DOTFILES/kitty $HOME/.config/kitty
+
+# aliases
+rm -rf $HOME/.aliases
+ln -s $DOTFILES/zsh/aliases $HOME/.aliases
+
+# zsh
+rm -rf $HOME/.zsh
+rm -rf $HOME/.zshrc
+rm -rf $HOME/.zprofile
+rm -rf $HOME/.zshenv
+ln -s $DOTFILES/zsh/core/ $HOME/.zsh
+ln -s $DOTFILES/zsh/zshenv $HOME/.zshenv
+ln -s $DOTFILES/zsh/zshrc $HOME/.zshrc
+ln -s $DOTFILES/zsh/zprofile $HOME/.zprofile
+
+# tmux
+rm -rf $HOME/.tmux.conf
+ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+# scripts
+mkdir -p $HOME/.local/bin
+rm -rf $HOME/.local/bin/t
+ln -s $DOTFILES/scripts/t $HOME/.local/bin/t
+
+# git
+rm -rf $HOME/.gitconfig
+ln -s $DOTFILES/git/gitconfig $HOME/.gitconfig
+
+# nvim
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim

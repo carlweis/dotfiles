@@ -1,0 +1,46 @@
+# clear out downloads folder
+alias purged="rm -rf ~/Downloads"
+
+# stripe
+alias stripe-webhooks="stripe listen --forward-to localhost:3000/stripe_webhooks"
+
+# tmux
+alias tmux="TERM=screen-256color-bce tmux"
+
+# rails
+alias rs="rails server"
+alias rc="spring rails console"
+alias rgm="bundle exec rake db:migrate && git checkout staging -- db/schema.rb"
+alias remigrate="bundle exec rake db:migrate && bundle exec rake db:rollback && bundle exec rake db:migrate"
+alias sidekiq="bundle exec sidekiq"
+
+# redis
+alias redis="redis-cli"
+
+# general
+alias rm-dsstore="find . -name '.DS_Store' -type f -delete"
+
+# terminal history
+alias hist="history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head"
+
+# vim
+alias v="nvim"
+alias vim="nvim"
+alias vi="nvim"
+alias vimdiff="nvim -d"
+
+# python
+alias serveit="python -m http.server"
+
+# postgresql
+alias resetpsql="rm -rf /usr/local/var/postgres/postmaster.pid"
+alias resetdev="pkill -f puma && rm -rf /usr/local/var/postgres/postmaster.pid"
+
+# bash shortcuts
+alias cl="clear"
+alias la="ls -la"
+
+# csv helpers
+alias pretty_csv="perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | exec less  -F -S -X -K"
+alias csv_columns="csvcut -n"
+
