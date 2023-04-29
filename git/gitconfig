@@ -73,6 +73,7 @@
   excludesfile = ~/.gitignore
   autocrlf = input
   difftool = nvim
+  editor = nvim
 [merge]
   ff = only
 [commit]
