@@ -36,3 +36,7 @@ ln -s $DOTFILES/git/gitconfig $HOME/.gitconfig
 # nvim
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+# php refactoring tools
+rm -rf $HOME/.config/phpactor
+ln -s $DOTFILES/phpactor $HOME/.config/phpactor

@@ -31,6 +31,33 @@ require('lspconfig').jsonls.setup({
   },
 })
 
+-- null-ls
+require('null-ls').setup({
+  sources = {
+    require('null-ls').builtins.diagnostics.eslint_d.with({
+      condition = function(utils)
+        return utils.root_has_file({ '.eslintrc.js' })
+      end,
+    }),
+    require('null-ls').builtins.diagnostics.trail_space.with({ disabled_filetypes = { 'NvimTree' } }),
+    require('null-ls').builtins.formatting.eslint_d.with({
+      condition = function(utils)
+        return utils.root_has_file({ '.eslintrc.js' })
+      end,
+    }),
+    require('null-ls').builtins.formatting.prettierd,
+    require('null-ls').builtins.formatting.astyle,
+    require('null-ls').builtins.formatting.blade_formatter,
+    require('null-ls').builtins.formatting.erb_format,
+    require('null-ls').builtins.formatting.erb_lint,
+    require('null-ls').builtins.formatting.lua_format,
+    require('null-ls').builtins.formatting.phpcsfixer,
+    require('null-ls').builtins.formatting.rubocop,
+    require('null-ls').builtins.formatting.rubyfmt,
+  },
+})
+require('mason-null-ls').setup({ automatic_installation = true })
+
 -- Keymaps
 vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
@@ -40,6 +67,9 @@ vim.keymap.set('n', 'gi', ':Telescope lsp_implementations<CR>')
 vim.keymap.set('n', 'gr', ':Telescope lsp_references<CR>')
 vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 vim.keymap.set('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+
+-- Commands
+vim.api.nvim_create_user_command('Format', 'vim.lsp.buf.formatting', {})
 
 -- Diagnostic configuration
 vim.diagnostic.config({

@@ -1,6 +1,9 @@
 # clear out downloads folder
 alias purged="rm -rf ~/Downloads"
 
+# use bat instead of cat for better formatting
+alias cat="bat"
+
 # stripe
 alias stripe-webhooks="stripe listen --forward-to localhost:3000/stripe_webhooks"
 
