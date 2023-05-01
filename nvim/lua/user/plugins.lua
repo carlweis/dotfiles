@@ -146,6 +146,17 @@ use({
   end,
 })
 
+-- Testing helper
+use({
+  'vim-test/vim-test',
+  config = function()
+    require('user/plugins/vim-test')
+  end,
+})
+
+-- Run tests in tmux pane
+use('christoomey/vim-tmux-runner')
+
 -- Commenting support.
 use('tpope/vim-commentary')
 
