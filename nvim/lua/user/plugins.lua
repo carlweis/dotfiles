@@ -137,6 +137,15 @@ use({
   end,
 })
 
+-- Project Configuration.
+use({
+  'tpope/vim-projectionist',
+  requires = 'tpope/vim-dispatch',
+  config = function()
+    require('user/plugins/projectionist')
+  end,
+})
+
 -- Commenting support.
 use('tpope/vim-commentary')
 
