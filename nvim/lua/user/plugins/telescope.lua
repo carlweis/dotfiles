@@ -5,9 +5,18 @@ vim.cmd([[
   highlight link TelescopePreviewTitle PMenuSel
   highlight link TelescopePromptNormal NormalFloat
   highlight link TelescopePromptBorder FloatBorder
-  highlight link TelescopeNormal CursorLine
-  highlight link TelescopeBorder CursorLineBg
+  highlight link TelescopeNormal NormalFloat
+  highlight link TelescopeBorder NormalFloat
 ]])
+
+vim.api.nvim_set_hl(0, "TelescopeBorder", {bg='#1e2329', fg='#1e2329'})
+vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg='#58ab5a', fg='#22282d'})
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg='#58ab5a', fg='#22282d'})
+
+
+  --highlight link TelescopeNormal CursorLine
+  --highlight link TelescopeBorder CursorLineBg
+
 
 require('telescope').setup({
   defaults = {

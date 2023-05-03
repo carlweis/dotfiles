@@ -10,6 +10,8 @@ vim.opt.wrap = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.showmode = false
+
 vim.opt.wildmode = 'longest:full,full' -- complete the longest common match, and allow tabbing the results to fully complete them
 
 vim.opt.completeopt = 'menuone,longest,preview'

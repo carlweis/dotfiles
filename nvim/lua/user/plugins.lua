@@ -28,9 +28,10 @@ use('wbthomason/packer.nvim')
 
 -- Color Scheme
 use({
-  'carlweis/onedark.nvim',
+  'projekt0n/github-nvim-theme',
+  --'carlweis/onedark.nvim',
   config = function()
-    vim.cmd('colorscheme onedark')
+    vim.cmd('colorscheme github_dark_dimmed')
     vim.api.nvim_set_hl(0, 'FloatBorder', {
       fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
       bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
@@ -49,6 +50,7 @@ use({
     })
 
     vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
+    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#1e2329' })
   end,
 })
 
@@ -65,7 +67,7 @@ use({
 use({
   'akinsho/bufferline.nvim',
   requires = 'kyazdani42/nvim-web-devicons',
-  after = 'onedark.nvim',
+  after = 'github-nvim-theme',
   config = function()
     require('user/plugins/bufferline')
   end,
