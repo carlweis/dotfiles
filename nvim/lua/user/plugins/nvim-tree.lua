@@ -1,4 +1,5 @@
 require('nvim-tree').setup({
+  respect_buf_cwd = true,
   git = {
     ignore = false,
   },
@@ -14,5 +15,5 @@ require('nvim-tree').setup({
     },
   },
 })
-
+vim.g.nvim_tree_respect_buf_cwd = 1
 vim.keymap.set('n', '<Leader>n', ':NvimTreeFindFileToggle<CR>')
