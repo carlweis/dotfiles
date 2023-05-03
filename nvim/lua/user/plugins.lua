@@ -159,6 +159,33 @@ use({
 -- Run tests in tmux pane
 use('christoomey/vim-tmux-runner')
 
+-- GitHub Copilot
+  use('github/copilot.vim')
+
+-- Ruby support
+use('vim-ruby/vim-ruby')
+
+-- Rails support
+use('tpope/vim-rails')
+
+-- Slim template support
+use('slim-template/vim-slim')
+
+-- Zen-mode
+use({
+  'folke/zen-mode.nvim',
+  config = function()
+    require('user/plugins/zenmode')
+  end,
+})
+
+-- Rubocop linting
+use({
+  'ngmy/vim-rubocop',
+  config = function()
+    require('user/plugins/rubocop')
+  end,
+})
 -- Commenting support.
 use('tpope/vim-commentary')
 
