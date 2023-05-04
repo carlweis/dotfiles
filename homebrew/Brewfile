@@ -1,0 +1,23 @@
+# taps
+tap "homebrew/cask"
+
+# set arguments for all 'brew install --cask' commands
+cask_args appdir: "~/Applications", require_sha: true
+
+# brews
+brew "mas"
+brew "imagemagick"
+brew "wget"
+brew "ripgrep"
+brew "bat"
+brew "neovim"
+brew "ngrok"
+brew "stripe-cli"
+
+# casks
+cask "google-chrome"
+cask "firefox"
+
+# mas install (mac app store)
+# mas search app-name to find app name and id
+# mas "Xcode", id: 497799835

@@ -44,3 +44,8 @@ ln -s $DOTFILES/phpactor $HOME/.config/phpactor
 # rubocop
 rm -rf $HOME/.rubocop.yml
 ln -s $DOTFILES/rubocop/rubocop.yml $HOME/.rubocop.yml
+
+# homebrew
+rm -rf $HOME/Brewfile
+ln -s $DOTFILES/homebrew/Brewfile $HOME/Brewfile
+
