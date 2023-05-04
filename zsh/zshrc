@@ -144,3 +144,9 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 # aliases
 #-----------------------------------------------------
 [[ -f ~/.aliases ]] && source ~/.aliases
+
+
+#-----------------------------------------------------
+# bat
+#-----------------------------------------------------
+export BAT_THEME="Coldark-Dark"
