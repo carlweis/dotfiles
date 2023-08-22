@@ -10,11 +10,11 @@ require('bufferline').setup({
       {
         filetype = 'NvimTree',
         text = '  Files',
-        highlight = 'StatusLine',
+        highlight = '',
         text_align = 'left',
       },
     },
-    separator_style = 'slant',
+    separator_style = {'', ''},
     modified_icon = '',
     custom_areas = {
       left = function()
@@ -26,19 +26,19 @@ require('bufferline').setup({
   },
   highlights = {
     fill = {
-      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = '#1d232a' },
     },
     background = {
-      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = '#1e2328' },
     },
     tab = {
-      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = '#1e2329' },
     },
     tab_close = {
-      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = '#1e2329' },
     },
     close_button = {
-      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      bg = { attribute = 'bg', highlight = '#1e2329' },
       fg = { attribute = 'fg', highlight = 'StatusLineNonText' },
     },
     close_button_visible = {
@@ -68,12 +68,12 @@ require('bufferline').setup({
       bg = { attribute = 'bg', highlight = 'StatusLine' },
     },
     separator_selected = {
-      fg = { attribute = 'bg', highlight = 'StatusLine' },
-      bg = { attribute = 'bg', highlight = 'Normal' }
+      fg = { attribute = 'bg', highlight = '#1e2329' },
+      bg = { attribute = 'bg', highlight = '#1e2329' }
     },
     separator_visible = {
-      fg = { attribute = 'bg', highlight = 'StatusLine' },
-      bg = { attribute = 'bg', highlight = 'StatusLine' },
+      fg = { attribute = 'bg', highlight = '#1e2329' },
+      bg = { attribute = 'bg', highlight = '#1e2329' },
     },
   },
 })
