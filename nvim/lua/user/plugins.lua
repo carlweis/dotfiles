@@ -27,32 +27,45 @@ local use = require('packer').use
 use('wbthomason/packer.nvim')
 
 -- Color Scheme
+-- One Dark theme.
 use({
-  'projekt0n/github-nvim-theme',
-  --'carlweis/onedark.nvim',
+  'jessarcher/onedark.nvim',
+
   config = function()
-    vim.cmd('colorscheme github_dark_dimmed')
+    vim.cmd('colorscheme habamax')
+
     vim.api.nvim_set_hl(0, 'FloatBorder', {
       fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
       bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
     })
-    -- Make the cursor line background invisible
-    vim.api.nvim_set_hl(0, 'CursorLineBg', {
-      fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-      bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-    })
-
-    vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
-
-    vim.api.nvim_set_hl(0, 'StatusLineNonText', {
-      fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
-      bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
-    })
-
-    vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
-    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#1e2329' })
   end,
 })
+--use({
+--  'projekt0n/github-nvim-theme',
+--  --'carlweis/onedark.nvim',
+--  config = function()
+--    vim.cmd('colorscheme github_dark_dimmed')
+--    vim.api.nvim_set_hl(0, 'FloatBorder', {
+--      fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
+--      bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
+--    })
+--    -- Make the cursor line background invisible
+--    vim.api.nvim_set_hl(0, 'CursorLineBg', {
+--      fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
+--      bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
+--    })
+
+--    vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
+
+--    vim.api.nvim_set_hl(0, 'StatusLineNonText', {
+--      fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
+--      bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
+--    })
+
+--    vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
+--    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#1e2329' })
+--  end,
+--})
 
 -- A Status line.
 use({
@@ -67,7 +80,7 @@ use({
 use({
   'akinsho/bufferline.nvim',
   requires = 'kyazdani42/nvim-web-devicons',
-  after = 'github-nvim-theme',
+  -- after = 'jessarcher/onedark.nvim',
   config = function()
     require('user/plugins/bufferline')
   end,
