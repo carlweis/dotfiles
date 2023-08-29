@@ -19,7 +19,7 @@ cmp.setup({
     format = lspkind.cmp_format(),
   },
   mapping = {
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<CR>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
