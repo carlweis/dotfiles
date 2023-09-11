@@ -33,6 +33,7 @@ alias vi="nvim"
 alias vimdiff="nvim -d"
 
 # python
+alias py="python3"
 alias serveit="python -m http.server"
 
 # postgresql
