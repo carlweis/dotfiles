@@ -28,7 +28,6 @@ use('wbthomason/packer.nvim')
 
 -- Color Scheme
 use({
-    -- 'jessarcher/onedark.nvim',
     'projekt0n/github-nvim-theme',
     config = function()
       vim.cmd('colorscheme github_dark_dimmed')
@@ -53,32 +52,8 @@ use({
       vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#1e2329' })
     end,
   })
---use({
---  'projekt0n/github-nvim-theme',
---  --'carlweis/onedark.nvim',
---  config = function()
---    vim.cmd('colorscheme github_dark_dimmed')
---    vim.api.nvim_set_hl(0, 'FloatBorder', {
---      fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
---      bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
---    })
---    -- Make the cursor line background invisible
---    vim.api.nvim_set_hl(0, 'CursorLineBg', {
---      fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
---      bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
---    })
 
---    vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
-
---    vim.api.nvim_set_hl(0, 'StatusLineNonText', {
---      fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
---      bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
---    })
-
---    vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
---    vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#1e2329' })
---  end,
---})
+use({ 'rose-pine/neovim', as = 'rose-pine' })
 
 -- A Status line.
 use({
@@ -90,14 +65,14 @@ use({
 })
 
 -- Display buffers as tabs.
-use({
-  'akinsho/bufferline.nvim',
-  requires = 'kyazdani42/nvim-web-devicons',
-  after = 'github-nvim-theme',
-  config = function()
-    require('user/plugins/bufferline')
-  end,
-})
+-- use({
+--   'akinsho/bufferline.nvim',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   after = 'github-nvim-theme',
+--   config = function()
+--     require('user/plugins/bufferline')
+--   end,
+-- })
 
 -- Display indentation lines.
 use({
@@ -319,14 +294,23 @@ use({
   end,
 })
 
--- File tree sidebar
+-- Harpoon
 use({
-  'kyazdani42/nvim-tree.lua',
-  requires = 'kyazdani42/nvim-web-devicons',
+  'ThePrimeagen/harpoon',
+  requires = {'nvim-lua/plenary.nvim'},
   config = function()
-    require('user/plugins/nvim-tree')
-  end,
+  require('user/plugins/harpoon')
+end,
 })
+
+-- File tree sidebar
+-- use({
+--   'kyazdani42/nvim-tree.lua',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   config = function()
+--     require('user/plugins/nvim-tree')
+--   end,
+-- })
 
 -- Improved syntax highlighting
 use({
