@@ -1,4 +1,4 @@
--- require('user/statusline')
+require('user/statusline')
 require('user/options')
 require('user/keymaps')
 require('user/plugins')

@@ -58,24 +58,24 @@ use({
   })
 
 -- A Status line.
-use({
-  'nvim-lualine/lualine.nvim',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = function()
-    require('user/plugins/lualine')
-  end,
-})
+-- use({
+--   'nvim-lualine/lualine.nvim',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   config = function()
+--     require('user/plugins/lualine')
+--   end,
+-- })
 
 
 -- Display buffers as tabs.
-use({
-  'akinsho/bufferline.nvim',
-  requires = 'kyazdani42/nvim-web-devicons',
-  after = 'github-nvim-theme',
-  config = function()
-    require('user/plugins/bufferline')
-  end,
-})
+-- use({
+--   'akinsho/bufferline.nvim',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   after = 'github-nvim-theme',
+--   config = function()
+--     require('user/plugins/bufferline')
+--   end,
+-- })
 
 -- Display indentation lines.
 use({
@@ -307,13 +307,13 @@ end,
 })
 
 -- File tree sidebar
-use({
-  'kyazdani42/nvim-tree.lua',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = function()
-    require('user/plugins/nvim-tree')
-  end,
-})
+-- use({
+--   'kyazdani42/nvim-tree.lua',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   config = function()
+--     require('user/plugins/nvim-tree')
+--   end,
+-- })
 
 -- Improved syntax highlighting
 use({
