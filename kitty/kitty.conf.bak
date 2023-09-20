@@ -5,7 +5,7 @@ italic_font JetBrainsMono Nerd Font Mono Italic
 bold_italic_font JetBrainsMono Nerd Font Mono Bold Italic
 
 font_size 18
-adjust_line_height 175%
+adjust_line_height 150%
 
 cursor_blink_interval 0
 enable_audio_bell 0
@@ -14,6 +14,6 @@ window_padding_width 20
 
 
 # BEGIN_KITTY_THEME
-# One Darkside
+GitHub Dark Dimmed
 include current-theme.conf
 # END_KITTY_THEME

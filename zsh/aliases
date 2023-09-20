@@ -4,6 +4,14 @@ alias purged="rm -rf ~/Downloads"
 # use bat instead of cat for better formatting
 alias cat="bat"
 
+# Heroku
+alias sc="env TERM=xterm-256color staging console"
+alias pc="env TERM=xterm-256color production console"
+#alias run="env TERM=xterm-256color"
+
+# Fix backspace key with ssh for kitty terminal
+alias ssh="env TERM=xterm-256color ssh"
+
 # stripe
 alias stripe-webhooks="stripe listen --forward-to localhost:3000/stripe_webhooks"
 

@@ -29,12 +29,17 @@ use('wbthomason/packer.nvim')
 -- Color Scheme
 use({
     'projekt0n/github-nvim-theme',
+    -- 'tomasiser/vim-code-dark',
+    -- 'jessarcher/onedark.nvim',
+    -- 'carlweis/onedark.nvim',
+    -- 'folke/tokyonight.nvim',
     config = function()
       vim.cmd('colorscheme github_dark_dimmed')
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
         })
+
       -- Make the cursor line background invisible
       vim.api.nvim_set_hl(0, 'CursorLineBg', {
           fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
@@ -49,11 +54,8 @@ use({
         })
 
       vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#1e2329' })
     end,
   })
-
-use({ 'rose-pine/neovim', as = 'rose-pine' })
 
 -- A Status line.
 use({
@@ -64,15 +66,16 @@ use({
   end,
 })
 
+
 -- Display buffers as tabs.
--- use({
---   'akinsho/bufferline.nvim',
---   requires = 'kyazdani42/nvim-web-devicons',
---   after = 'github-nvim-theme',
---   config = function()
---     require('user/plugins/bufferline')
---   end,
--- })
+use({
+  'akinsho/bufferline.nvim',
+  requires = 'kyazdani42/nvim-web-devicons',
+  after = 'github-nvim-theme',
+  config = function()
+    require('user/plugins/bufferline')
+  end,
+})
 
 -- Display indentation lines.
 use({
@@ -304,13 +307,13 @@ end,
 })
 
 -- File tree sidebar
--- use({
---   'kyazdani42/nvim-tree.lua',
---   requires = 'kyazdani42/nvim-web-devicons',
---   config = function()
---     require('user/plugins/nvim-tree')
---   end,
--- })
+use({
+  'kyazdani42/nvim-tree.lua',
+  requires = 'kyazdani42/nvim-web-devicons',
+  config = function()
+    require('user/plugins/nvim-tree')
+  end,
+})
 
 -- Improved syntax highlighting
 use({
