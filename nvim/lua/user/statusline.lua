@@ -8,7 +8,7 @@ local function git_branch()
 end
 
 local function statusline()
-    local set_color_1 = "%#Folded#"
+    local set_color_1 = "%#Pmenu#"
     local branch = git_branch()
     local set_color_2 = "%#LineNr#"
     local file_name = " %f"

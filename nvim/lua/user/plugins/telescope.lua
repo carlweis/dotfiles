@@ -1,12 +1,12 @@
 local actions = require('telescope.actions')
 
-vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#1d232a"})
-vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#1d232a", fg="#1d232a"})
-vim.api.nvim_set_hl(0, "TelescopeTitle", {bg="#1d232a", fg="#1d232a"})
-vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#1d232a", fg="#ffffff"})
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#1d232a", fg="#1d232a"})
-vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#1d232a", fg="#1d232a"})
-vim.api.nvim_set_hl(0, "FloatBorder", {bg="#1d232a", fg="#1d232a"})
+-- vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#1a1a1a"})
+-- vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#1a1a1a", fg="#1a1a1a"})
+-- vim.api.nvim_set_hl(0, "TelescopeTitle", {bg="#1a1a1a", fg="#1a1a1a"})
+-- vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#1a1a1a", fg="#ffffff"})
+-- vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#1a1a1a", fg="#1a1a1a"})
+-- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#1a1a1a", fg="#1a1a1a"})
+-- vim.api.nvim_set_hl(0, "FloatBorder", {bg="#1a1a1a", fg="#1a1a1a"})
 
 vim.cmd([[
   highlight link TelescopePromptTitle PMenuSel
