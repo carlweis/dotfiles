@@ -25,13 +25,23 @@ local use = require('packer').use
 
 -- Packer can manage itself.
 use('wbthomason/packer.nvim')
-
-use('Mofiqul/vscode.nvim')
+use('jessarcher/onedark.nvim')
+-- use('Mofiqul/vscode.nvim')
 -- Color Scheme
+use {
+  'olivercederborg/poimandres.nvim',
+  config = function()
+    require('poimandres').setup {
+      -- leave this setup function empty for default config
+      -- or refer to the configuration section
+      -- for configuration options
+    }
+  end
+}
 use({
-    'jessarcher/onedark.nvim',
+    'Mofiqul/vscode.nvim',
     config = function()
-      vim.cmd('colorscheme onedark')
+      vim.cmd('colorscheme vscode')
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
@@ -50,37 +60,37 @@ use({
           bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
         })
 
-      vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2f313C' })
+      -- vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2f313C' })
     end,
   })
 
 -- A Status line.
-use({
-  'nvim-lualine/lualine.nvim',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = function()
-    require('user/plugins/lualine')
-  end,
-})
+-- use({
+--   'nvim-lualine/lualine.nvim',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   config = function()
+--     require('user/plugins/lualine')
+--   end,
+-- })
 
 
 -- Display buffers as tabs.
-use({
-  'akinsho/bufferline.nvim',
-  requires = 'kyazdani42/nvim-web-devicons',
-  after = 'onedark.nvim',
-  config = function()
-    require('user/plugins/bufferline')
-  end,
-})
+-- use({
+--   'akinsho/bufferline.nvim',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   after = 'onedark.nvim',
+--   config = function()
+--     require('user/plugins/bufferline')
+--   end,
+-- })
 
 -- Display indentation lines.
-use({
-  'lukas-reineke/indent-blankline.nvim',
-  config = function()
-    require('user/plugins/indent-blankline')
-  end,
-})
+-- use({
+--   'lukas-reineke/indent-blankline.nvim',
+--   config = function()
+--     require('user/plugins/indent-blankline')
+--   end,
+-- })
 
 --- Floating terminal.
 use({
@@ -304,13 +314,13 @@ end,
 })
 
 -- File tree sidebar
-use({
-  'kyazdani42/nvim-tree.lua',
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = function()
-    require('user/plugins/nvim-tree')
-  end,
-})
+-- use({
+--   'kyazdani42/nvim-tree.lua',
+--   requires = 'kyazdani42/nvim-web-devicons',
+--   config = function()
+--     require('user/plugins/nvim-tree')
+--   end,
+-- })
 
 -- Improved syntax highlighting
 use({

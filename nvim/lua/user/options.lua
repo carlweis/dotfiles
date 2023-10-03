@@ -21,7 +21,7 @@ vim.opt.mouse = 'a' -- enable mouse for all modes
 
 vim.opt.termguicolors = true
 
-vim.opt.spell = true -- spelling
+vim.opt.spell = false -- spelling
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
