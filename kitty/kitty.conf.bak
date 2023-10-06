@@ -1,8 +1,12 @@
 # kitty
 
 font_family menlo
-font_size 18
+font_size 20
 adjust_line_height 150%
+
+transparency yes
+background_opacity 1
+background_blur = 32
 
 cursor_blink_interval 0
 enable_audio_bell 0
@@ -10,6 +14,5 @@ hide_window_decorations yes
 window_padding_width 20
 
 # BEGIN_KITTY_THEME
-# Doom One
 include current-theme.conf
 # END_KITTY_THEME

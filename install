@@ -50,6 +50,10 @@ ln -s $DOTFILES/phpactor $HOME/.config/phpactor
 rm -rf $HOME/.rubocop.yml
 ln -s $DOTFILES/rubocop/rubocop.yml $HOME/.rubocop.yml
 
+# solargraph
+rm -rf $HOME/.solargraph.yml
+ln -s $DOTFILES/solargraph/solargraph.yml $HOME/.solargraph.yml
+
 # homebrew
 rm -rf $HOME/Brewfile
 ln -s $DOTFILES/homebrew/Brewfile $HOME/Brewfile

@@ -25,21 +25,19 @@ local use = require('packer').use
 
 -- Packer can manage itself.
 use('wbthomason/packer.nvim')
-use('jessarcher/onedark.nvim')
--- use('Mofiqul/vscode.nvim')
+
 -- Color Scheme
-use {
-  'olivercederborg/poimandres.nvim',
-  config = function()
-    require('poimandres').setup {
-      -- leave this setup function empty for default config
-      -- or refer to the configuration section
-      -- for configuration options
-    }
-  end
-}
+-- use('rose-pine/neovim')
+-- use('folke/tokyonight.nvim')
+use('jessarcher/onedark.nvim')
+-- use('olivercederborg/poimandres.nvim')
+use('Mofiqul/vscode.nvim')
+use('projekt0n/github-nvim-theme')
+-- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
+
 use({
-    'Mofiqul/vscode.nvim',
+    'ntk148v/habamax.nvim',
+    requires = { 'rktjmp/lush.nvim'},
     config = function()
       vim.cmd('colorscheme habamax')
       vim.api.nvim_set_hl(0, 'FloatBorder', {
@@ -338,18 +336,18 @@ use({
 })
 
 -- Git integration.
-use({
-  'lewis6991/gitsigns.nvim',
-  config = function()
-    require('gitsigns').setup()
-    vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
-    vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
-    vim.keymap.set('n', 'gs', ':Gitsigns stage_hunk<CR>')
-    vim.keymap.set('n', 'gS', ':Gitsigns undo_stage_hunk<CR>')
-    vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>')
-    vim.keymap.set('n', 'gb', ':Gitsigns blame_line<CR>')
-  end,
-})
+-- use({
+--   'lewis6991/gitsigns.nvim',
+--   config = function()
+--     require('gitsigns').setup()
+--     vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
+--     vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
+--     vim.keymap.set('n', 'gs', ':Gitsigns stage_hunk<CR>')
+--     vim.keymap.set('n', 'gS', ':Gitsigns undo_stage_hunk<CR>')
+--     vim.keymap.set('n', 'gp', ':Gitsigns preview_hunk<CR>')
+--     vim.keymap.set('n', 'gb', ':Gitsigns blame_line<CR>')
+--   end,
+-- })
 
 -- Git commands.
 use({
