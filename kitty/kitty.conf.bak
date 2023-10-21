@@ -1,6 +1,6 @@
 # kitty
 
-font_family menlo
+font_family "SF Mono"
 font_size 20
 adjust_line_height 150%
 
@@ -14,5 +14,6 @@ hide_window_decorations yes
 window_padding_width 20
 
 # BEGIN_KITTY_THEME
+# GitHub Dark Dimmed
 include current-theme.conf
 # END_KITTY_THEME
