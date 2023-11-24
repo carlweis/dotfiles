@@ -55,6 +55,7 @@ rm -rf $HOME/.solargraph.yml
 ln -s $DOTFILES/solargraph/solargraph.yml $HOME/.solargraph.yml
 
 # homebrew
-rm -rf $HOME/Brewfile
-ln -s $DOTFILES/homebrew/Brewfile $HOME/Brewfile
+# rm -rf $HOME/Brewfile
+# ln -s $DOTFILES/homebrew/Brewfile $HOME/Brewfile
+# brew install
 
