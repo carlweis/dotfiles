@@ -40,3 +40,9 @@ vim.keymap.set('n', '<A-j>', ':move .+1<CR>==')
 vim.keymap.set('n', '<A-k>', ':move .-2<CR>==')
 vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv")
 vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv")
+
+-- Map Cmd + S to save in normal mode
+vim.api.nvim_set_keymap('n', '<D-s>', ':w<CR>', { noremap = true, silent = true })
+
+-- Map Cmd + S to save in insert mode
+vim.api.nvim_set_keymap('i', '<D-s>', '<Esc>:w<CR>a', { noremap = true, silent = true })

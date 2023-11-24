@@ -160,3 +160,8 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1"
 # bat
 #-----------------------------------------------------
 export BAT_THEME="Coldark-Dark"
+
+#-----------------------------------------------------
+# Node Options
+#-----------------------------------------------------
+export NODE_OPTIONS="" #"--openssl-legacy-provider"

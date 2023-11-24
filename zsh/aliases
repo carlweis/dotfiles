@@ -1,3 +1,5 @@
+# Delete all .DS_Store files
+alias dsstore="find . -name '.DS_Store' -type f -delete"
 # clear out downloads folder
 alias purged="rm -rf ~/Downloads"
 
