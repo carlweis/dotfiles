@@ -1,37 +1,19 @@
 local actions = require('telescope.actions')
 
--- vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#1a1a1a"})
--- vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#1a1a1a", fg="#1a1a1a"})
--- vim.api.nvim_set_hl(0, "TelescopeTitle", {bg="#1a1a1a", fg="#1a1a1a"})
--- vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#1a1a1a", fg="#ffffff"})
--- vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#1a1a1a", fg="#1a1a1a"})
--- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#1a1a1a", fg="#1a1a1a"})
--- vim.api.nvim_set_hl(0, "FloatBorder", {bg="#1a1a1a", fg="#1a1a1a"})
-
-vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#1C1C1C", fg="#1C1C1C"})
-vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#1C1C1C", fg="#1C1C1C"})
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#1C1C1C", fg="#1C1C1C"})
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#1C1C1C", fg="#adbac7"})
-vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#1C1C1C", fg="#adbac7"})
-vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="#1C1C1C", fg="#adbac7"})
-vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#30363d", fg="#adbac7"})
-vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#1C1C1C", fg="#1C1C1C"})
-vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#1C1C1C", fg="#1C1C1C"})
-
--- 23272e or 1C1C1C
-vim.cmd([[
-  " highlight link TelescopePromptTitle PMenuSel
-  " highlight link TelescopePreviewTitle PMenuSel
-  " highlight link TelescopePromptNormal NormalFloat
-  " highlight link TelescopePromptBorder FloatBorder
-  " highlight link TelescopeNormal CursorLine
-  " highlight link TelescopeBorder CursorLineBg
-]])
+vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#212121", fg="#212121"})
+vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#212121", fg="#212121"})
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#212121", fg="#212121"})
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#212121", fg="#adbac7"})
+vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#212121", fg="#adbac7"})
+vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="#212121", fg="#adbac7"})
+vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#303030", fg="#adbac7"})
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#212121", fg="#212121"})
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#212121", fg="#212121"})
 
 require('telescope').setup({
   defaults = {
     path_display = { truncate = 1 },
-    prompt_prefix = '   ',
+    prompt_prefix = '  ',
     selection_caret = '  ',
     layout_config = {
       prompt_position = 'top',

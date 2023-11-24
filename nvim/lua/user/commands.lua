@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- don't automatically continue comments after newline
-vim.api.nvim_create_autocmd({ "BufNewFile,BufRead" }, {
-  pattern = { "*" },
-  command = [[setlocal formatoptions-=cro]],
-})
+-- vim.api.nvim_create_autocmd({ "BufNewFile,BufRead" }, {
+--   pattern = { "*" },
+--   command = [[setlocal formatoptions-=cro]],
+-- })

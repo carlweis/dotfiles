@@ -29,17 +29,17 @@ use('wbthomason/packer.nvim')
 -- Color Scheme
 -- use('rose-pine/neovim')
 -- use('folke/tokyonight.nvim')
--- use('jessarcher/onedark.nvim')
+use('jessarcher/onedark.nvim')
 -- use('olivercederborg/poimandres.nvim')
 -- use('Mofiqul/vscode.nvim')
 -- use('projekt0n/github-nvim-theme')
--- use('ntk148v/habamax.nvim')
+use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
 -- use { "catppuccin/nvim", as = "catppuccin" }
 -- use 'marko-cerovac/material.nvim'
 
 use({
-    'ntk148v/habamax.nvim',
+    'jessarcher/onedark',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
       -- require('github-theme').setup({
@@ -301,7 +301,7 @@ use({
   'nvim-telescope/telescope.nvim',
   requires = {
     'nvim-lua/plenary.nvim',
-    'kyazdani42/nvim-web-devicons',
+    -- 'kyazdani42/nvim-web-devicons',
     'nvim-telescope/telescope-live-grep-args.nvim',
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   },
