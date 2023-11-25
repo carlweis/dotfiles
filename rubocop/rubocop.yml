@@ -7,3 +7,5 @@ Style/StringLiterals:
     - double_quotes
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/EmptyMethod:
+  EnforcedStyle: expanded
