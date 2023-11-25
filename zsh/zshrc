@@ -94,8 +94,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_AHEAD=" %{$RED%}(!)"
 
 # Format for git_prompt_long_sha() and git_prompt_short_sha()
-ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$YELLOW%}[%{$YELLOW%}"
-ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$YELLOW%}]"
+ZSH_THEME_GIT_PROMPT_SHA_BEFORE=" %{$MAGENTA%}[%{$MAGENTA%}"
+ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$MAGENTA%}]"
 
 # Only display host if this is via SSH
 if [[ -n $SSH_CONNECTION ]]; then
@@ -104,9 +104,13 @@ else
     sshing=""
 fi
 
+# PROMPT='
+# %{$CYAN%}$sshing%{$GREEN%} %{$BLUE%}${PWD/#$HOME/~}%{$RESET_COLOR%} \
+# %{$MAGENTA%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)$(git_prompt_short_sha)$(parse_git_dirty)%{$RESET_COLOR%}
+# %(?.%{$fg[yellow]%}.%{$fg[red]%})%B$%b '
 PROMPT='
-%{$CYAN%}$sshing%{$YELLOW%} %{$BLUE%}${PWD/#$HOME/~}%{$RESET_COLOR%} \
-%{$YELLOW%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)$(git_prompt_short_sha)$(parse_git_dirty)%{$RESET_COLOR%}
+%{$CYAN%}$sshing%{$GREEN%} %{$BLUE%}${PWD/#$HOME/~}%{$RESET_COLOR%} \
+%{$MAGENTA%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)$(parse_git_dirty)%{$RESET_COLOR%}
 %(?.%{$fg[yellow]%}.%{$fg[red]%})%B$%b '
 
 #-----------------------------------------------------
