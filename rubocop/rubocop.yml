@@ -9,3 +9,8 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/EmptyMethod:
   EnforcedStyle: expanded
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+  SupportedStyles:
+    - with_first_argument
+    - with_fixed_indentation
