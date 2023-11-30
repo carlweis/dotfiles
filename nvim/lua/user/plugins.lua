@@ -33,22 +33,22 @@ use('wbthomason/packer.nvim')
 -- use('olivercederborg/poimandres.nvim')
 -- use('Mofiqul/vscode.nvim')
 -- use('projekt0n/github-nvim-theme')
-use('ntk148v/habamax.nvim')
+-- use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
 -- use { "catppuccin/nvim", as = "catppuccin" }
 -- use 'marko-cerovac/material.nvim'
-use 'thecodelogix/palenightfall.nvim'
+-- use 'thecodelogix/palenightfall.nvim'
 
 use({
-    'jessarcher/onedark.nvim',
+    'Mofiqul/vscode.nvim',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
-      -- require('github-theme').setup({
+      -- require('palenightfall').setup({
       --     options = {
       --       transparent = true
       --     }
       -- })
-      vim.cmd('colorscheme palenightfall')
+      vim.cmd('colorscheme vscode')
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
