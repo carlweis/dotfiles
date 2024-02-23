@@ -1,2 +1,1 @@
-export VISUAL=vim
-export EDITOR=$VISUAL
+/Users/carl/.dotfiles/zsh/configs/editor.zsh

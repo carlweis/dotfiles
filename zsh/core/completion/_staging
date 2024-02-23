@@ -1,2 +1,1 @@
-#compdef staging
-compdef staging=heroku
+/Users/carl/.dotfiles/zsh/completion/_staging

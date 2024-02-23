@@ -33,14 +33,15 @@ use('wbthomason/packer.nvim')
 -- use('olivercederborg/poimandres.nvim')
 -- use('Mofiqul/vscode.nvim')
 -- use('projekt0n/github-nvim-theme')
--- use('ntk148v/habamax.nvim')
+use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
 -- use { "catppuccin/nvim", as = "catppuccin" }
 -- use 'marko-cerovac/material.nvim'
 -- use 'thecodelogix/palenightfall.nvim'
+-- use 'gruvbox-community/gruvbox'
 
 use({
-    'ntk148v/habamax.nvim',
+    'projekt0n/github-nvim-theme',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
       vim.cmd('colorscheme habamax.nvim')
@@ -124,6 +125,10 @@ use({
   end,
 })
 
+-- LSP Settings
+use('prabirshrestha/vim-lsp')
+use('mattn/vim-lsp-settings')
+
 -- Completion
 use({
   'hrsh7th/nvim-cmp',
@@ -142,15 +147,15 @@ use({
 })
 
 -- PHP Refactoring Tools
-use({
-  'phpactor/phpactor',
-  ft = 'php',
-  run = 'composer install --no-dev --optimize-autoloader',
-  config = function()
-    vim.keymap.set('n', '<Leader>pm', ':PhpactorContextMenu<CR>')
-    vim.keymap.set('n', '<Leader>pn', ':PhpactorClassNew<CR>')
-  end,
-})
+-- use({
+--   'phpactor/phpactor',
+--   ft = 'php',
+--   run = 'composer install --no-dev --optimize-autoloader',
+--   config = function()
+--     vim.keymap.set('n', '<Leader>pm', ':PhpactorContextMenu<CR>')
+--     vim.keymap.set('n', '<Leader>pn', ':PhpactorClassNew<CR>')
+--   end,
+-- })
 
 -- Project Configuration.
 use({

@@ -29,7 +29,7 @@
 
   branch-name = "!git rev-parse --abbrev-ref HEAD"
   publish = "!git push -u origin $(git branch-name)"
-  update = "!f() { git fetch $1 --prune; git merge --ff-only $1/$2 || git rebase --preserve-merges $1/$2; }; f origin $(git branch-name)"
+  update = "!f() { git fetch $1 --prune; git merge --ff-only $1/$2 || git rebase --rebase-merges $1/$2; }; f origin $(git branch-name)"
   unpublish = "!git push origin :$(git branch-name)"
   code-review = difftool origin/staging...
   unstage = reset HEAD

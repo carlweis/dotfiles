@@ -1,2 +1,1 @@
-#compdef g
-compdef g=git
+/Users/carl/.dotfiles/zsh/completion/_g
