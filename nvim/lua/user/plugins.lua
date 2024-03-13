@@ -26,7 +26,9 @@ local use = require('packer').use
 -- Packer can manage itself.
 use('wbthomason/packer.nvim')
 
+------------------------------------------------------
 -- Color Scheme
+------------------------------------------------------
 -- use('rose-pine/neovim')
 -- use('folke/tokyonight.nvim')
 -- use('jessarcher/onedark.nvim')
@@ -38,7 +40,7 @@ use('wbthomason/packer.nvim')
 -- use { "catppuccin/nvim", as = "catppuccin" }
 -- use 'marko-cerovac/material.nvim'
 -- use 'thecodelogix/palenightfall.nvim'
-
+-- use { "ellisonleao/gruvbox.nvim" }
 use({
     'ntk148v/habamax.nvim',
     requires = { 'rktjmp/lush.nvim'},
@@ -79,8 +81,8 @@ use({
 -- Display buffers as tabs.
 -- use({
 --   'akinsho/bufferline.nvim',
---   requires = 'kyazdani42/nvim-web-devicons',
---   after = 'onedark.nvim',
+--   requires = 'kyazdani42/nvim-web-devicons',plug
+--   after = 'habamax.nvim',
 --   config = function()
 --     require('user/plugins/bufferline')
 --   end,

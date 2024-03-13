@@ -1,15 +1,23 @@
+# https://alacritty.org/config-alacritty.html
+
 import = [
     "~/.config/alacritty/habamax.toml"
 ]
 
 [font]
 size = 24
+offset = { x = 0, y = 8 }
 
 [font.normal]
-family = "JetbrainsMono Nerd Font"
+family = "UbuntuMono Nerd Font"
+
+[font.bold]
 
 [window]
 decorations = "none"
+# startup_mode = "fullscreen"
+title = "Terminal"
+dynamic_title = false
 
 [window.padding]
 x = 10
