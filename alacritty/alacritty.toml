@@ -1,0 +1,16 @@
+import = [
+    "~/.config/alacritty/habamax.toml"
+]
+
+[font]
+size = 24
+
+[font.normal]
+family = "JetbrainsMono Nerd Font"
+
+[window]
+decorations = "none"
+
+[window.padding]
+x = 10
+y = 10
