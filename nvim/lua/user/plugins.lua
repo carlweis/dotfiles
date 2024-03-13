@@ -69,32 +69,32 @@ use({
   })
 
 -- A Status line.
--- use({
---   'nvim-lualine/lualine.nvim',
---   requires = 'kyazdani42/nvim-web-devicons',
---   config = function()
---     require('user/plugins/lualine')
---   end,
--- })
+use({
+  'nvim-lualine/lualine.nvim',
+  requires = 'kyazdani42/nvim-web-devicons',
+  config = function()
+    require('user/plugins/lualine')
+  end,
+})
 
 
 -- Display buffers as tabs.
--- use({
---   'akinsho/bufferline.nvim',
---   requires = 'kyazdani42/nvim-web-devicons',plug
---   after = 'habamax.nvim',
---   config = function()
---     require('user/plugins/bufferline')
---   end,
--- })
+use({
+  'akinsho/bufferline.nvim',
+  requires = 'kyazdani42/nvim-web-devicons',
+  after = 'habamax.nvim',
+  config = function()
+    require('user/plugins/bufferline')
+  end,
+})
 
 -- Display indentation lines.
--- use({
---   'lukas-reineke/indent-blankline.nvim',
---   config = function()
---     require('user/plugins/indent-blankline')
---   end,
--- })
+use({
+  'lukas-reineke/indent-blankline.nvim',
+  config = function()
+    require('user/plugins/indent-blankline')
+  end,
+})
 
 --- Floating terminal.
 use({

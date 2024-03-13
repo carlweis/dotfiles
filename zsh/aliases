@@ -6,6 +6,14 @@ alias purged="rm -rf ~/Downloads"
 # use bat instead of cat for better formatting
 alias cat="bat"
 
+# ls
+alias ls="ls --color=auto"
+alias ll="ls -la"
+alias la="ls -lathr"
+
+# finds all files recursively and sorts by last modification, ignores hidden files
+alias last="find . -type f - not -path "*/\.*" -exec ls -lrt {} +"
+
 # Heroku
 alias sc="env TERM=xterm-256color staging console"
 alias pc="env TERM=xterm-256color production console"
@@ -26,6 +34,11 @@ alias rc="spring rails console"
 alias rgm="bundle exec rake db:migrate && git checkout staging -- db/schema.rb"
 alias remigrate="bundle exec rake db:migrate && bundle exec rake db:rollback && bundle exec rake db:migrate"
 alias sidekiq="bundle exec sidekiq"
+
+# git
+alias gu="git update"
+alias gp="git publish"
+
 
 # redis
 alias redis="redis-cli"

@@ -7,4 +7,11 @@ vim.cmd('highlight VertSplit guibg=#1c1c1c guifg=#1c1c1c')
 vim.cmd('highlight NormalNC guibg=#1c1c1c guifg=#1c1c1c')
 
 -- Don't dim inactive panes/windows
-vim.cmd ('highlight Normal guibg=NONE')
+vim.cmd('highlight Normal guibg=NONE')
+
+-- Tabs
+vim.cmd('highlight TabLineFill guibg=#111111 guifg=#111111')
+vim.cmd('highlight TabLine guibg=#111111 guifg=#111111')
+
+-- StatusLine
+vim.cmd('highlight StatusLine guibg=#1c1c1c guifg=#1c1c1c')
