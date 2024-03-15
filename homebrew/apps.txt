@@ -1,0 +1,11 @@
+slack
+discord
+figma
+spotify
+rectangle
+iterm2
+alacritty
+keycastr
+visual-studio-code
+alt-tab
+stats
