@@ -4,6 +4,9 @@ import = [
     "~/.config/alacritty/colorscheme.toml"
 ]
 
+[env]
+TERM = "xterm-256-color"
+
 [font]
 size = 16
 offset = { x = 0, y = 8 }
@@ -23,3 +26,4 @@ dynamic_title = false
 [window.padding]
 x = 10
 y = 10
+
