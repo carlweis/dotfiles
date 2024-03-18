@@ -6,6 +6,7 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 # xargs brew install < homebrew/apps.txt
 
 # alacritty terminal
+rm -rf $HOME/.alacritty.toml
 rm -rf $HOME/.config/alacritty
 mkdir $HOME/.config/alacritty
 ln -s $DOTFILES/alacritty/alacritty.toml $HOME/.alacritty.toml
