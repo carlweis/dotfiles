@@ -1,0 +1,28 @@
+# Codedark colors for Alacritty
+
+# Default colors
+[colors.primary]
+background = '#1E1E1E'
+foreground = '#D4D4D4'
+
+# Normal colors
+[colors.normal]
+black   = '#1E1E1E'
+red     = '#D16969'
+green   = '#608B4E'
+yellow  = '#DCDCAA'
+blue    = '#569CD6'
+magenta = '#C586C0'
+cyan    = '#4EC9B0'
+white   = '#D4D4D4'
+
+# Bright colors
+[colors.bright]
+black   = '#1E1E1E'
+red     = '#D16969'
+green   = '#608B4E'
+yellow  = '#DCDCAA'
+blue    = '#569CD6'
+magenta = '#C586C0'
+cyan    = '#4EC9B0'
+white   = '#D4D4D4'

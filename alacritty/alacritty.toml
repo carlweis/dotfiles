@@ -1,7 +1,7 @@
 # https://alacritty.org/config-alacritty.html
 
 import = [
-    "~/.config/alacritty/habamax.toml"
+    "~/.config/alacritty/colorscheme.toml"
 ]
 
 [font]
