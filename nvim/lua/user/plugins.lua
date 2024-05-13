@@ -33,7 +33,7 @@ use('wbthomason/packer.nvim')
 -- use('folke/tokyonight.nvim')
 -- use('jessarcher/onedark.nvim')
 -- use('olivercederborg/poimandres.nvim')
-use('Mofiqul/vscode.nvim')
+-- use('Mofiqul/vscode.nvim')
 -- use('projekt0n/github-nvim-theme')
 -- use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
@@ -45,7 +45,7 @@ use({
     'ntk148v/habamax.nvim',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
-      vim.cmd('colorscheme vscode')
+      vim.cmd('colorscheme habamax.nvim')
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,

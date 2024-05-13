@@ -170,3 +170,5 @@ export BAT_THEME="Coldark-Dark"
 # Node Options
 #-----------------------------------------------------
 export NODE_OPTIONS="" #"--openssl-legacy-provider"
+
+export TERM=xterm
