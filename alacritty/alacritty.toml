@@ -22,6 +22,7 @@ decorations = "none"
 # startup_mode = "fullscreen"
 title = "Terminal"
 dynamic_title = false
+opacity = 0.95
 
 [window.padding]
 x = 10
