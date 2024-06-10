@@ -1,84 +1,68 @@
 local actions = require('telescope.actions')
--- vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#212121", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#212121", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#212121", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#212121", fg="#adbac7"})
--- vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#212121", fg="#adbac7"})
--- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="#212121", fg="#adbac7"})
--- vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#303030", fg="#adbac7"})
--- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#212121", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#212121", fg="#212121"})
-
-
--- Transparency
--- vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="none", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="none", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="none", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="none", fg="#adbac7"})
--- vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="none", fg="#adbac7"})
--- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="none", fg="#adbac7"})
--- vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#303030", fg="#adbac7", blend=60})
--- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="none", fg="#212121"})
--- vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="none", fg="#212121"})
 
 require('telescope').setup({
-defaults = {
-  path_display = { truncate = 1 },
-  prompt_prefix = '   ',
-  selection_caret = '  ',
-  layout_config = {
-    prompt_position = 'top',
-  },
-  preview = false,
-  -- preview = {
-  --   timeout = 200,
-  -- },
-  sorting_strategy = 'ascending',
-  mappings = {
-    i = {
-      ['<esc>'] = actions.close,
-      ['<C-Down>'] = actions.cycle_history_next,
-      ['<C-Up>'] = actions.cycle_history_prev,
+    defaults = {
+      path_display = { truncate = 1 },
+      prompt_prefix = '   ',
+      selection_caret = '  ',
+      layout_config = {
+        prompt_position = 'top',
+      },
+      theme = 'dropdown',
+      preview = false,
+      -- preview = {
+      --   timeout = 200,
+      -- },
+      sorting_strategy = 'ascending',
+      mappings = {
+        i = {
+          ['<esc>'] = actions.close,
+          ['<C-Down>'] = actions.cycle_history_next,
+          ['<C-Up>'] = actions.cycle_history_prev,
+        },
+      },
+      file_ignore_patterns = { '.git/' },
     },
-  },
-  file_ignore_patterns = { '.git/' },
-},
-extensions = {
-  live_grep_args = {
-    mappings = {
-      i = {
-        ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
-        ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
+    extensions = {
+      live_grep_args = {
+        mappings = {
+          i = {
+            ["<C-k>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+            ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
+          },
+        },
       },
     },
-  },
-},
-pickers = {
-  find_files = {
-    hidden = true,
-  },
-  buffers = {
-    previewer = false,
-    layout_config = {
-      width = 80,
+    pickers = {
+      find_files = {
+        hidden = true,
+        theme = 'dropdown',
+      },
+      buffers = {
+        previewer = false,
+        layout_config = {
+          width = 80,
+        },
+        theme = 'dropdown',
+      },
+      oldfiles = {
+        previewer = false,
+        prompt_title = 'History',
+        theme = 'dropdown'
+      },
+      lsp_references = {
+        previewer = false,
+        theme = 'dropdown',
+      },
+      lsp_definitions = {
+        previewer = false,
+        theme = 'dropdown'
+      },
+      lsp_document_symbols = {
+        symbol_width = 55,
+      },
     },
-  },
-  oldfiles = {
-    prompt_title = 'History',
-  },
-  lsp_references = {
-    previewer = false,
-  },
-  lsp_definitions = {
-    previewer = false,
-  },
-  lsp_document_symbols = {
-    symbol_width = 55,
-  },
-},
-})
-
-require('telescope').load_extension('fzf')
+  })
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('live_grep_args')
