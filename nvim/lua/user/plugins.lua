@@ -43,10 +43,10 @@ use('wbthomason/packer.nvim')
 -- use 'thecodelogix/palenightfall.nvim'
 -- use { "ellisonleao/gruvbox.nvim" }
 use({
-    'olimorris/onedarkpro.nvim',
+    'Mofiqul/vscode.nvim',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
-      vim.cmd('colorscheme onedark')
+      vim.cmd('colorscheme vscode')
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
