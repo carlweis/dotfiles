@@ -6,6 +6,15 @@
 --     end
 -- })
 
+-- vim.cmd([[
+-- augroup MyColors
+-- autocmd!
+-- autocmd ColorScheme * highlight BufferLineFill guibg=#191724
+-- autocmd ColorScheme * highlight BufferLineSeparator guifg=#191724
+-- autocmd ColorScheme * highlight BufferLineSeparatorSelected guifg=#191724
+-- augroup END
+
+-- ]])
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
