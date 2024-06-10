@@ -172,3 +172,7 @@ export BAT_THEME="Coldark-Dark"
 export NODE_OPTIONS="" #"--openssl-legacy-provider"
 
 export TERM=xterm
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/carl/.asdf/installs/nodejs/21.5.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/carl/.asdf/installs/nodejs/21.5.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh

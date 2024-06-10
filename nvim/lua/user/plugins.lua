@@ -32,6 +32,7 @@ use('wbthomason/packer.nvim')
 -- use('rose-pine/neovim')
 -- use('folke/tokyonight.nvim')
 -- use('jessarcher/onedark.nvim')
+-- use('olimorris/onedarkpro.nvim')
 -- use('olivercederborg/poimandres.nvim')
 -- use('Mofiqul/vscode.nvim')
 -- use('projekt0n/github-nvim-theme')
@@ -42,10 +43,10 @@ use('wbthomason/packer.nvim')
 -- use 'thecodelogix/palenightfall.nvim'
 -- use { "ellisonleao/gruvbox.nvim" }
 use({
-    'ntk148v/habamax.nvim',
+    'olimorris/onedarkpro.nvim',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
-      vim.cmd('colorscheme habamax.nvim')
+      vim.cmd('colorscheme onedark')
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
@@ -82,7 +83,7 @@ use({
 use({
   'akinsho/bufferline.nvim',
   requires = 'kyazdani42/nvim-web-devicons',
-  after = 'habamax.nvim',
+  -- after = 'habamax.nvim',
   config = function()
     require('user/plugins/bufferline')
   end,

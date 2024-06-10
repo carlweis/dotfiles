@@ -5,7 +5,7 @@ import = [
 ]
 
 [env]
-TERM = "xterm-256-color"
+TERM = "xterm-256color"
 
 [font]
 size = 16
@@ -18,11 +18,11 @@ family = "MesloLGL Nerd Font"
 [font.bold]
 
 [window]
-decorations = "none"
+# decorations = "none"
 # startup_mode = "fullscreen"
 title = "Terminal"
 dynamic_title = false
-opacity = 0.95
+opacity = 1
 
 [window.padding]
 x = 10
