@@ -2,11 +2,25 @@ local actions = require('telescope.actions')
 
 require('telescope').setup({
     defaults = {
+      find_command = {
+        "rg",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case"
+      },
+      border = {},
+      borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
       path_display = { truncate = 1 },
       prompt_prefix = '   ',
       selection_caret = '  ',
       layout_config = {
+        width = 0.80,
         prompt_position = 'top',
+        preview_cutoff = 120,
+        horizontal = { mirror = false },
+        vertical = { mirror = false },
       },
       theme = 'dropdown',
       preview = false,
