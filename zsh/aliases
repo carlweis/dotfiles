@@ -39,6 +39,8 @@ alias sidekiq="bundle exec sidekiq"
 # git
 alias gu="git update"
 alias gp="git publish"
+alias nah="git add . && git stash"
+alias pop="git stash pop"
 
 
 # redis
