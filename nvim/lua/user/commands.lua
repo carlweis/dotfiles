@@ -1,3 +1,14 @@
+--  Fix issue with ColorScheme
+vim.api.nvim_create_augroup('OneDarkHighlightGroup', { clear = true })
+
+-- Create an autocommand to set the highlight when Vim enters
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = 'OneDarkHighlightGroup',
+  callback = function()
+    vim.cmd('hi Comment guibg=#5c6370 guifg=#292c34')
+  end,
+})
+
 -- strip trailing whitespace on save
 --
 -- vim.api.nvim_create_autocmd("VimEnter", {

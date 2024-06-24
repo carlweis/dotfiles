@@ -12,8 +12,7 @@ size = 16
 offset = { x = 0, y = 8 }
 
 [font.normal]
-# family = "UbuntuMono Nerd Font"
-family = "MesloLGL Nerd Font"
+family = "JetBrainsMono Nerd Font"
 
 [font.bold]
 

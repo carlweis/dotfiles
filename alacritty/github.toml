@@ -1,0 +1,34 @@
+# GitHub Dark Dimmed
+
+[colors]
+  [colors.primary]
+    background = '#24292E'  # BG color from palette.canvas.default
+    foreground = '#C9D1D9'  # Default FG color from palette.fg.default
+
+  [colors.cursor]
+    text = '#24292E'  # Background color
+    cursor = '#C9D1D9'  # Foreground color
+
+  [colors.normal]
+    black = '#1C1E22'  # scale.gray[10]
+    red = '#F85149'    # scale.red[4]
+    green = '#56D364'  # scale.green[4]
+    yellow = '#E3B341' # scale.yellow[4]
+    blue = '#539BF5'   # scale.blue[4]
+    magenta = '#B083F0' # scale.purple[4]
+    cyan = '#76E3EA'   # custom cyan
+    white = '#C9D1D9'  # scale.gray[3]
+
+  [colors.bright]
+    black = '#8B949E'  # scale.gray[5]
+    red = '#FF7B72'    # scale.red[3]
+    green = '#3FB950'  # scale.green[3]
+    yellow = '#D29922' # scale.yellow[3]
+    blue = '#388BFD'   # scale.blue[3]
+    magenta = '#8A63D2' # scale.purple[3]
+    cyan = '#B3F0FF'   # custom bright cyan
+    white = '#C9D1D9'  # scale.gray[3]
+
+  [colors.selection]
+    text = '#C9D1D9'  # scale.gray[2]
+    background = '#034A7F'  # custom selection background
