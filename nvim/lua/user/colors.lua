@@ -15,3 +15,4 @@
 
 -- -- StatusLine
 -- vim.cmd('highlight StatusLine guibg=#454a58 guifg=#1c1c1c')
+--

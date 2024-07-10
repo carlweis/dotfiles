@@ -1,20 +1,4 @@
 -- strip trailing whitespace on save
---
--- vim.api.nvim_create_autocmd("VimEnter", {
---     callback = function()
---         vim.cmd("hi Normal guibg=none ctermbg=none")
---     end
--- })
-
--- vim.cmd([[
--- augroup MyColors
--- autocmd!
--- autocmd ColorScheme * highlight BufferLineFill guibg=#191724
--- autocmd ColorScheme * highlight BufferLineSeparator guifg=#191724
--- autocmd ColorScheme * highlight BufferLineSeparatorSelected guifg=#191724
--- augroup END
-
--- ]])
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
