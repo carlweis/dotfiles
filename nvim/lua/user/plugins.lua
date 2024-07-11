@@ -32,13 +32,13 @@ use('wbthomason/packer.nvim')
 -- use('rose-pine/neovim')
 -- use('folke/tokyonight.nvim')
 -- use('jessarcher/onedark.nvim')
--- use('olimorris/onedarkpro.nvim')
+use('olimorris/onedarkpro.nvim')
 -- use('olivercederborg/poimandres.nvim')
 -- use('Mofiqul/vscode.nvim')
 -- use('projekt0n/github-nvim-theme')
 -- use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
-use { "catppuccin/nvim", as = "catppuccin" }
+-- use { "catppuccin/nvim", as = "catppuccin" }
 -- use 'marko-cerovac/material.nvim'
 -- use 'thecodelogix/palenightfall.nvim'
 -- use { "ellisonleao/gruvbox.nvim" }
@@ -46,8 +46,8 @@ use({
     'ntk148v/habamax.nvim',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
-      vim.cmd('colorscheme catppuccin-frappe')
-      vim.api.nvim_set_hl(0, "Comment", { bg = "#303446", fg = "#737994" })
+      vim.cmd('colorscheme onedark')
+      vim.api.nvim_set_hl(0, "Comment", { bg = "none", fg = "#737994" })
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
