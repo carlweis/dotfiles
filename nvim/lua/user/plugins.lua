@@ -48,6 +48,9 @@ use({
     config = function()
       vim.cmd('colorscheme onedark')
       vim.api.nvim_set_hl(0, "Comment", { bg = "none", fg = "#737994" })
+      vim.api.nvim_set_hl(0, "TabLineSel", { bg="#292c34", fg="#98c379"})
+      vim.api.nvim_set_hl(0, "TabLine", { bg="#22252b", fg="#747895"})
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg="#22252b", fg="#747895"})
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
