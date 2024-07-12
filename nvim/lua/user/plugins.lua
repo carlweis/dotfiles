@@ -38,7 +38,7 @@ use('olimorris/onedarkpro.nvim')
 -- use('projekt0n/github-nvim-theme')
 -- use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
-use { "catppuccin/nvim", as = "catppuccin" }
+use { "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" }
 -- use 'marko-cerovac/material.nvim'
 -- use 'thecodelogix/palenightfall.nvim'
 -- use { "ellisonleao/gruvbox.nvim" }
@@ -46,14 +46,22 @@ use({
     'ntk148v/habamax.nvim',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
-      require("catppuccin").setup({
-          color_overrides = {
-            all = {
-              base = "#282828",
-            },
-          },
-        })
-      vim.cmd('colorscheme catppuccin-frappe')
+      require("catppuccin").setup {
+        color_overrides = {
+          all = {
+            base = "#282828",    -- Main background color
+            mantle = "#282828",  -- Secondary background color
+            crust = "#282828"    -- Tertiary background color
+          }
+        },
+        custom_highlights = {
+          Normal = { bg = "#282828" },   -- Set Normal background color
+          Comment = { fg = "#a89984", bg = "#282828" },  -- Example to set comment color
+        }
+      }
+
+      -- Apply the colorscheme
+      vim.cmd('colorscheme catppuccin')
 
       vim.api.nvim_set_hl(0, "Comment", { bg = "none", fg = "#737994" })
       vim.api.nvim_set_hl(0, "TabLineSel", { bg="#282828", fg="#98c379"})
