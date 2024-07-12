@@ -67,6 +67,9 @@ use({
       vim.api.nvim_set_hl(0, "TabLineSel", { bg="#282828", fg="#98c379"})
       vim.api.nvim_set_hl(0, "TabLine", { bg="#252525", fg="#747895"})
       vim.api.nvim_set_hl(0, "TabLineFill", { bg="#252525", fg="#747895"})
+      vim.api.nvim_set_hl(0, "Pmenu", { bg="#252525", fg="#747895"})
+      vim.api.nvim_set_hl(0, "PmenuSelect", { bg="#282828", fg="#a6e3a1"})
+
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
