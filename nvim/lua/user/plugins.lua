@@ -38,7 +38,7 @@ use('olimorris/onedarkpro.nvim')
 -- use('projekt0n/github-nvim-theme')
 -- use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
--- use { "catppuccin/nvim", as = "catppuccin" }
+use { "catppuccin/nvim", as = "catppuccin" }
 -- use 'marko-cerovac/material.nvim'
 -- use 'thecodelogix/palenightfall.nvim'
 -- use { "ellisonleao/gruvbox.nvim" }
@@ -46,7 +46,11 @@ use({
     'ntk148v/habamax.nvim',
     requires = { 'rktjmp/lush.nvim'},
     config = function()
-      vim.cmd('colorscheme onedark')
+      require("catppuccin").setup({
+        transparent_background = true,
+      })
+      vim.cmd('colorscheme catppuccin-frappe')
+
       vim.api.nvim_set_hl(0, "Comment", { bg = "none", fg = "#737994" })
       vim.api.nvim_set_hl(0, "TabLineSel", { bg="#292c34", fg="#98c379"})
       vim.api.nvim_set_hl(0, "TabLine", { bg="#22252b", fg="#747895"})
