@@ -1,28 +1,26 @@
 local actions = require('telescope.actions')
 
-vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#22252b", fg="#22252b"})
-vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#22252b", fg="#22252b"})
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#22252b", fg="#22252b"})
-vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#22252b", fg="#adbac7"})
-vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#22252b", fg="#737994"})
-vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="#22252b", fg="#737994"})
-vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#292c34", fg="#adbac7"})
-vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#22252b", fg="#22252b"})
-vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#22252b", fg="#22252b"})
+vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#252525", fg="#252525"})
+vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#252525", fg="#252525"})
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#252525", fg="#252525"})
+vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#252525", fg="#adbac7"})
+vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#252525", fg="#737994"})
+vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="#252525", fg="#737994"})
+vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#282828", fg="#adbac7"})
+vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#252525", fg="#252525"})
+vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#252525", fg="#252525"})
 vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#a6d189"})
 
-
-
 -- Transparency
--- vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="none", fg="#22252b"})
--- vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="none", fg="#22252b"})
--- vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="none", fg="#22252b"})
+-- vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="none", fg="#252525"})
+-- vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="none", fg="#252525"})
+-- vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="none", fg="#252525"})
 -- vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="none", fg="#adbac7"})
 -- vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="none", fg="#adbac7"})
 -- vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="none", fg="#adbac7"})
 -- vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#303030", fg="#adbac7", blend=60})
--- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="none", fg="#22252b"})
--- vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="none", fg="#22252b"})
+-- vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="none", fg="#252525"})
+-- vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="none", fg="#252525"})
 
 require('telescope').setup({
   defaults = {

@@ -47,14 +47,18 @@ use({
     requires = { 'rktjmp/lush.nvim'},
     config = function()
       require("catppuccin").setup({
-        transparent_background = true,
-      })
+          color_overrides = {
+            all = {
+              base = "#282828",
+            },
+          },
+        })
       vim.cmd('colorscheme catppuccin-frappe')
 
       vim.api.nvim_set_hl(0, "Comment", { bg = "none", fg = "#737994" })
-      vim.api.nvim_set_hl(0, "TabLineSel", { bg="#292c34", fg="#98c379"})
-      vim.api.nvim_set_hl(0, "TabLine", { bg="#22252b", fg="#747895"})
-      vim.api.nvim_set_hl(0, "TabLineFill", { bg="#22252b", fg="#747895"})
+      vim.api.nvim_set_hl(0, "TabLineSel", { bg="#282828", fg="#98c379"})
+      vim.api.nvim_set_hl(0, "TabLine", { bg="#252525", fg="#747895"})
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg="#252525", fg="#747895"})
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
           bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,

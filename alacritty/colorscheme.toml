@@ -1,5 +1,6 @@
 [colors.primary]
-background  = "#282c34"
+#background  = "#282c34"
+background  = "#282828"
 foreground  = "#abb2bf"
 
 [colors.normal]
