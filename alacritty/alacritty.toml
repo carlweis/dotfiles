@@ -18,12 +18,12 @@ family = "MesloLGL Nerd Font"
 [font.bold]
 
 [window]
-decorations = "none"
+# decorations = "none"
 # startup_mode = "fullscreen"
 title = "Terminal"
 dynamic_title = false
 opacity = 1
 
 [window.padding]
-x = 10
-y = 10
+x = 0
+y = 0

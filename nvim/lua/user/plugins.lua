@@ -50,8 +50,8 @@ use({
         color_overrides = {
           all = {
             base = "#282828",    -- Main background color
-            mantle = "#282828",  -- Secondary background color
-            crust = "#282828"    -- Tertiary background color
+            mantle = "#262626",  -- Secondary background color
+            crust = "#242424"    -- Tertiary background color
           }
         },
         custom_highlights = {
@@ -64,9 +64,9 @@ use({
       vim.cmd('colorscheme catppuccin')
 
       vim.api.nvim_set_hl(0, "Comment", { bg = "none", fg = "#737994" })
-      vim.api.nvim_set_hl(0, "TabLineSel", { bg="#282828", fg="#98c379"})
-      vim.api.nvim_set_hl(0, "TabLine", { bg="#252525", fg="#747895"})
-      vim.api.nvim_set_hl(0, "TabLineFill", { bg="#252525", fg="#747895"})
+      vim.api.nvim_set_hl(0, "TabLineSel", { bg="#7970a9", fg="#f8f8f2"})
+      vim.api.nvim_set_hl(0, "TabLine", { bg="#454158", fg="#f8f8f2"})
+      vim.api.nvim_set_hl(0, "TabLineFill", { bg="#454158", fg="#f8f8f2"})
       vim.api.nvim_set_hl(0, "Pmenu", { bg="#252525", fg="#747895"})
       vim.api.nvim_set_hl(0, "PmenuSelect", { bg="#282828", fg="#a6e3a1"})
 
