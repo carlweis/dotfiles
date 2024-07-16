@@ -84,3 +84,28 @@ vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSi
 vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
 vim.fn.sign_define('DiagnosticSignHint', { text = '', texthl = 'DiagnosticSignHint' })
+
+-- Configure null-ls
+null_ls.setup({
+  sources = {
+    -- RuboCop for Ruby
+    null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.formatting.rubocop,
+
+    -- ESLint for JavaScript/TypeScript
+    null_ls.builtins.diagnostics.eslint_d,
+    null_ls.builtins.formatting.eslint_d,
+  },
+})
+
+lspconfig.tsserver.setup({
+  on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+    -- Other on_attach configurations can be added here
+  end,
+  flags = {
+    debounce_text_changes = 150,
+  }
+})

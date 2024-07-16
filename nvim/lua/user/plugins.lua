@@ -32,18 +32,18 @@ use('wbthomason/packer.nvim')
 -- use('rose-pine/neovim')
 -- use('folke/tokyonight.nvim')
 -- use('jessarcher/onedark.nvim')
-use('olimorris/onedarkpro.nvim')
+-- use('olimorris/onedarkpro.nvim')
 -- use('olivercederborg/poimandres.nvim')
 -- use('Mofiqul/vscode.nvim')
 -- use('projekt0n/github-nvim-theme')
 -- use('ntk148v/habamax.nvim')
 -- use { "ntk148v/habamax.nvim", requires={ "rktjmp/lush.nvim" } }
-use { "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" }
+-- use { "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" }
 -- use 'marko-cerovac/material.nvim'
 -- use 'thecodelogix/palenightfall.nvim'
 -- use { "ellisonleao/gruvbox.nvim" }
 use({
-    'ntk148v/habamax.nvim',
+   "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile",
     requires = { 'rktjmp/lush.nvim'},
     config = function()
       require("catppuccin").setup {
@@ -69,6 +69,8 @@ use({
       vim.api.nvim_set_hl(0, "TabLineFill", { bg="#454158", fg="#f8f8f2"})
       vim.api.nvim_set_hl(0, "Pmenu", { bg="#252525", fg="#747895"})
       vim.api.nvim_set_hl(0, "PmenuSelect", { bg="#282828", fg="#a6e3a1"})
+      vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = '#a6e3a1' })
+      vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#333436'})
 
       vim.api.nvim_set_hl(0, 'FloatBorder', {
           fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
@@ -144,6 +146,7 @@ use({
     'b0o/schemastore.nvim',
     'jose-elias-alvarez/null-ls.nvim',
     'jayp0521/mason-null-ls.nvim',
+    'nvim-lua/plenary.nvim',
   },
   config = function()
     require('user/plugins/lspconfig')
