@@ -9,12 +9,12 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 rm -rf $HOME/.alacritty.toml
 rm -rf $HOME/.config/alacritty
 mkdir $HOME/.config/alacritty
-ln -s $DOTFILES/alacritty/alacritty.toml $HOME/.alacritty.toml
-ln -s $DOTFILES/alacritty/colorscheme.toml $HOME/.config/alacritty/colorscheme.toml
+ln -s $DOTFILES/terminals/alacritty/alacritty.toml $HOME/.alacritty.toml
+ln -s $DOTFILES/terminals/alacritty/colorscheme.toml $HOME/.config/alacritty/colorscheme.toml
 
 # kitty terminal
 rm -rf $HOME/.config/kitty
-ln -s $DOTFILES/kitty $HOME/.config/kitty
+ln -s $DOTFILES/terminals/kitty $HOME/.config/kitty
 
 # aliases
 rm -rf $HOME/.aliases
