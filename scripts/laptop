@@ -1,0 +1,13 @@
+#!/bin/bash
+# This script installs the thoughtbot/laptop script, which sets up a web development environment on a macOS system.
+# The script is fetched from the thoughtbot GitHub repository, viewed with 'less', and then executed.
+# The installation output is logged to ~/laptop.log.
+
+# Fetch the thoughtbot/laptop script
+curl --remote-name https://raw.githubusercontent.com/thoughtbot/laptop/main/mac
+
+# View the fetched script
+less mac
+
+# Execute the script and log the output to ~/laptop.log
+sh mac 2>&1 | tee ~/laptop.log
