@@ -51,7 +51,7 @@ use({
           all = {
             base = "#282828",    -- Main background color
             mantle = "#262626",  -- Secondary background color
-            crust = "#242424"    -- Tertiary background color
+            crust = "#333436"    -- Tertiary background color
           }
         },
         custom_highlights = {
