@@ -12,10 +12,12 @@ size = 16
 offset = { x = 0, y = 8 }
 
 [font.normal]
-family = "MesloLGL Nerd Font"
+# family = "MesloLGL Nerd Font"
+family = "JetBrainsMono Nerd Font"
 
 [font.bold]
-family = "MesloLGL Nerd Font"
+# family = "MesloLGL Nerd Font"
+family = "JetBrainsMono Nerd Font"
 
 [window]
 decorations = "none"
