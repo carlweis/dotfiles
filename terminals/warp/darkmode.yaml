@@ -1,0 +1,24 @@
+name: Darkmode # Name for the theme
+accent: '#268bd2' # Accent color for UI elements
+background: '#242424' # Terminal background color
+foreground: '#cdd6f4' # The foreground color
+details: darker # Whether the theme is lighter or darker
+terminal_colors: # Ansi escape colors
+  bright:
+    black: '#282828'
+    blue: '#89b4fa'
+    cyan: '#A7DFEF'
+    green: '#a6e3a1'
+    magenta: '#cba6f7'
+    red: '#fab386'
+    white: '#F6F6F5'
+    yellow: '#f9e2af'
+  normal:
+    black: '#1c1c1c'
+    blue: '#89b4fa'
+    cyan: '#A7DFEF'
+    green: '#a6e3a1'
+    magenta: '#cba6f7'
+    red: '#fab386'
+    white: '#F6F6F5'
+    yellow: '#f9e2af'

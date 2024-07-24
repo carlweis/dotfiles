@@ -17,6 +17,10 @@ if [[ "$1" == "--new" ]]; then
   NEW_FLAG=true
 fi
 
+# Warp terminal setup
+mkdir -p $HOME/.warp/themes
+create_symlink "$DOTFILES/warp/darkmode.yaml" "$HOME/.warp/themes/darkmode.yaml"
+
 # Alacritty terminal setup
 create_symlink "$DOTFILES/terminals/alacritty/alacritty.toml" "$HOME/.alacritty.toml"
 mkdir -p $HOME/.config/alacritty
