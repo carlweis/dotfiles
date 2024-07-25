@@ -50,7 +50,7 @@ use({
         color_overrides = {
           all = {
             base = "#282828",    -- Main background color
-            mantle = "#262626",  -- Secondary background color
+            mantle = "#333333",  -- Secondary background color
             crust = "#333436"    -- Tertiary background color
           }
         },

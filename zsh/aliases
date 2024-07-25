@@ -63,7 +63,7 @@ alias py="python3"
 alias serveit="python -m http.server"
 
 # postgresql
-alias resetpsql="rm -rf /usr/local/var/postgres/postmaster.pid"
+alias resetpsql="rm -rf /usr/local/var/postgres/postmaster.pid && rm -rf /opt/homebrew/var/posgresql@14/postmaster.pid && brew services restart postgresql@14 && brew services list"
 alias resetdev="pkill -f puma && rm -rf /usr/local/var/postgres/postmaster.pid"
 
 # bash shortcuts
