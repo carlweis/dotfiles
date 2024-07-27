@@ -74,3 +74,5 @@ alias la="ls -la"
 alias pretty_csv="perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | exec less  -F -S -X -K"
 alias csv_columns="csvcut -n"
 
+# fzf
+alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
