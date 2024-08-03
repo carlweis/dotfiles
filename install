@@ -17,6 +17,11 @@ if [[ "$1" == "--new" ]]; then
   NEW_FLAG=true
 fi
 
+# Link default configuration files
+create_symlink "$DOTFILES/default-configs/eslintrc.json" "$HOME/.eslintrc.json"
+create_symlink "$DOTFILES/default-configs/rubocop.yml" "$HOME/.rubocop.yml"
+create_symlink "$DOTFILES/default-configs/solargraph.yml" "$HOME/.solargraph.yml"
+
 # Warp terminal setup
 mkdir -p $HOME/.warp/themes
 create_symlink "$DOTFILES/warp/darkmode.yaml" "$HOME/.warp/themes/darkmode.yaml"
@@ -53,12 +58,6 @@ create_symlink "$DOTFILES/nvim" "$HOME/.config/nvim"
 
 # PHP refactoring tools setup
 create_symlink "$DOTFILES/phpactor" "$HOME/.config/phpactor"
-
-# Rubocop configuration
-create_symlink "$DOTFILES/rubocop/rubocop.yml" "$HOME/.rubocop.yml"
-
-# Solargraph configuration
-create_symlink "$DOTFILES/solargraph/solargraph.yml" "$HOME/.solargraph.yml"
 
 # Homebrew setup (uncomment if needed)
 # create_symlink "$DOTFILES/homebrew/Brewfile" "$HOME/Brewfile"
