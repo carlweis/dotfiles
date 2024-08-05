@@ -31,6 +31,11 @@ return {
       lspconfig.solargraph.setup({ capabilities = capabilities })
       lspconfig.tsserver.setup({ capabilities = capabilities })
       lspconfig.tailwindcss.setup({ capabilities = capabilities })
+      lspconfig.emmet_language_server.setup({ capabilities = capabilities })
+      lspconfig.stimulus_ls.setup({ capabilities = capabilities })
+      -- lspconfig.erb_formatter.setup({ capabilities = capabilities })
+      -- lspconfig.erb_lint.setup({ capabilities = capabilities })
+
 
       local opts = { noremap = true, silent = true }
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
