@@ -4,7 +4,6 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        -- theme = "dracula",
         theme = {
           normal = {
             a = "Normal",

@@ -194,3 +194,8 @@ export PATH="/Users/carl/Library/Application Support/Herd/bin/":$PATH
 
  # Disalbe Homebrew AUTO-UPDATE
  export HOMEBREW_NO_AUTO_UPDATE=1
+
+ # reload kitty
+ reload-kitty() {
+    kill -SIGUSR1 $(pgrep kitty)
+}
