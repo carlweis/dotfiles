@@ -44,6 +44,7 @@ return {
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
       -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
       vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, opts)
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     end
   }
 }

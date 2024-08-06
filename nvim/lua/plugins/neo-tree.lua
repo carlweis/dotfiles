@@ -8,9 +8,17 @@ return {
     "3rd/image.nvim",
   },
   config = function()
-    vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle left<CR>")
-    vim.keymap.set("n", "-", ":Neotree position=current<CR>")
-
+    -- Automatically open Neo-tree on startup
     vim.cmd([[autocmd VimEnter * Neotree position=current]])
-  end
+
+    -- Toggle tree view at the current file's position
+    -- NOT WORKING / MUST BE A PLUGIN/CONFIG CONFLICT
+    -- vim.keymap.set("n", "<c-b>", ":Neotree toggle left<CR>")
+
+    -- Open Neo-tree in fullscreen at the current file's location
+    vim.keymap.set("n", "-", ":Neotree reveal position=current<CR>")
+
+    -- Close/toggle the full view of Neo-tree
+    vim.keymap.set("n", "_", ":Neotree close<CR>")
+  end,
 }
