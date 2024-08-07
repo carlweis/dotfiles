@@ -68,6 +68,7 @@ alias resetdev="pkill -f puma && rm -rf /usr/local/var/postgres/postmaster.pid"
 
 # bash shortcuts
 alias cl="clear"
+alias clr="clear"
 alias la="ls -la"
 
 # csv helpers
