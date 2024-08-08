@@ -1,46 +1,52 @@
--- leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- Leader Key
+vim.g.mapleader = " "               -- Set leader key to space
+vim.g.maplocalleader = " "          -- Set local leader key to space
 
--- tabs/spaces
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+-- Tabs/Spaces
+vim.opt.expandtab = true            -- Use spaces instead of tabs
+vim.opt.tabstop = 2                 -- Number of spaces a tab counts for
+vim.opt.softtabstop = 2             -- Number of spaces for a soft tab
+vim.opt.shiftwidth = 2              -- Number of spaces to use for autoindent
+vim.opt.smartindent = true          -- Smart autoindenting
 
--- line numers
-vim.cmd("set number")
+-- Line Numbers
+vim.opt.number = true               -- Show line numbers
+vim.opt.relativenumber = true       -- Show relative line numbers
 
--- NEED TO ORGANIZE
-vim.opt.backup = true -- automatically save a backup file
-vim.opt.backupdir:remove('.') -- keep backups out of the current directory
-vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
-vim.opt.completeopt = 'menuone,longest,preview'
-vim.opt.confirm = true -- ask for confirmation instead of erroring
-vim.opt.cursorline = true
-vim.opt.expandtab = true
-vim.opt.fillchars:append({ eob = ' ' }) -- remove the ~ from end of buffer
-vim.opt.ignorecase = true
-vim.opt.list = true -- enable the below listchars
-vim.opt.listchars = { tab = '▸ ', trail = '·' }
-vim.opt.mouse = 'a' -- enable mouse for all modes
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 8
-vim.opt.shiftwidth = 2
-vim.opt.showmode = false
-vim.opt.showtabline = 1
-vim.opt.sidescrolloff = 8
-vim.opt.signcolumn = 'yes:2'
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.softtabstop = 2
-vim.opt.spell = false -- spelling
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.tabstop = 2
-vim.opt.termguicolors = true
-vim.opt.title = true
-vim.opt.undofile = true -- persistent undo
-vim.opt.wildmode = 'longest:full,full' -- complete the longest common match, and allow tabbing the results to fully complete them
-vim.opt.wrap = true
+-- Backup
+vim.opt.backup = true               -- Enable backup files
+vim.opt.backupdir:remove('.')       -- Exclude current directory from backups
+vim.opt.undofile = true             -- Enable persistent undo
+
+-- Interface
+vim.opt.cursorline = true           -- Highlight the current line
+vim.opt.fillchars:append({ eob = ' ' }) -- Remove the ~ from the end of buffer
+vim.opt.mouse = 'a'                 -- Enable mouse for all modes
+vim.opt.scrolloff = 8               -- Minimum lines to keep above and below the cursor
+vim.opt.sidescrolloff = 8           -- Minimum columns to keep to the left and right of the cursor
+vim.opt.signcolumn = 'yes:2'        -- Always show the sign column with 2 columns width
+vim.opt.splitbelow = true           -- Horizontal splits open below the current window
+vim.opt.splitright = true           -- Vertical splits open to the right of the current window
+vim.opt.termguicolors = true        -- Enable true color support
+vim.opt.title = true                -- Set the terminal title
+vim.opt.wrap = false                -- Disable line wrapping
+vim.opt.list = true                 -- Show whitespace characters
+vim.opt.listchars = { tab = '▸ ', trail = '·' } -- Characters to use for displaying whitespace
+
+-- Clipboard
+vim.opt.clipboard = 'unnamedplus'   -- Use system clipboard
+
+-- Completion
+vim.opt.completeopt = 'menuone,longest,preview' -- Completion options
+vim.opt.wildmode = 'longest:full,full' -- Command-line completion mode
+
+-- Search
+vim.opt.ignorecase = true           -- Ignore case in search patterns
+vim.opt.smartcase = true            -- Override ignorecase if search pattern contains uppercase letters
+
+-- Miscellaneous
+vim.opt.confirm = true              -- Ask for confirmation instead of erroring
+vim.opt.showmode = false            -- Don't show mode (e.g., -- INSERT --)
+vim.opt.showtabline = 1             -- Always show tabline with one tab
+vim.opt.spell = false               -- Disable spell checking
+

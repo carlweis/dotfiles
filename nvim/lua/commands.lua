@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd("BufWritePost", {
   -- pattern = "~/.config/kitty/kitty.conf",
   pattern = "./terminals/kitty/kitty.conf",
-  command = [[silent !kill -SIGUSR1 $(pgrep kitty)]]
+  command = [[silent !kill -SIGUSR1 $(pgrep kitty)]],
 })
 
 -- strip trailing whitespace on save
@@ -40,4 +40,3 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --   pattern = { "*" },
 --   command = [[setlocal formatoptions-=cro]],
 -- })
-
