@@ -40,3 +40,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --   pattern = { "*" },
 --   command = [[setlocal formatoptions-=cro]],
 -- })
+
+vim.api.nvim_set_hl(0, "YankHighlight", { bg = "#45475b", fg = "none" }) -- Set your desired background and foreground colors
+
+vim.api.nvim_create_autocmd("textyankpost", {
+  desc = "highlight when yanking text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank({ higroup = 'YankHighlight', timeout = 200 })
+  end,
+})

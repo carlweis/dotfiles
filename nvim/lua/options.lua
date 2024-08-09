@@ -32,6 +32,7 @@ vim.opt.title = true                -- Set the terminal title
 vim.opt.wrap = false                -- Disable line wrapping
 vim.opt.list = true                 -- Show whitespace characters
 vim.opt.listchars = { tab = '▸ ', trail = '·' } -- Characters to use for displaying whitespace
+vim.opt.cmdheight = 0               -- Makes the command line appear and disappear faster
 
 -- Clipboard
 vim.opt.clipboard = 'unnamedplus'   -- Use system clipboard
@@ -49,4 +50,3 @@ vim.opt.confirm = true              -- Ask for confirmation instead of erroring
 vim.opt.showmode = false            -- Don't show mode (e.g., -- INSERT --)
 vim.opt.showtabline = 1             -- Always show tabline with one tab
 vim.opt.spell = false               -- Disable spell checking
-

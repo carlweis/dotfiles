@@ -1,3 +1,6 @@
+-- Configure vim testing
+
+-- workflow: open tmux pane, leader + ap (attach pane), then run tests
 return {
   "vim-test/vim-test",
   config = function()
@@ -6,13 +9,9 @@ return {
     vim.keymap.set("n", "<Leader>ts", ":TestSuite<CR>")
     vim.keymap.set("n", "<Leader>tl", ":TestLast<CR>")
     vim.keymap.set("n", "<Leader>tv", ":TestVisit<CR>")
+    vim.keymap.set("n", "<Leader>ap", ":VtrAttachToPane<CR>")
 
     vim.cmd([[
-      function! FloatermStrategy(cmd)
-        execute 'silent FloatermKill'
-        execute 'FloatermNew! '.a:cmd.' |less -X'
-      endfunction
-      let g:test#custom_strategies = {'floaterm': function('FloatermStrategy')}
       let g:test#strategy = 'vtr'
     ]])
   end,

@@ -21,6 +21,7 @@ fi
 create_symlink "$DOTFILES/default-configs/eslintrc.json" "$HOME/.eslintrc.json"
 create_symlink "$DOTFILES/default-configs/rubocop.yml" "$HOME/.rubocop.yml"
 create_symlink "$DOTFILES/default-configs/solargraph.yml" "$HOME/.solargraph.yml"
+create_symlink "$DOTFILES/default-configs/rspec.conf" "$HOME/.rspec"
 
 # Warp terminal setup
 mkdir -p $HOME/.warp/themes
