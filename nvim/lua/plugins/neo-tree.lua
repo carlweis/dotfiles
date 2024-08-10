@@ -1,10 +1,9 @@
 -- File tree sidebar
-
 return {
   'nvim-neo-tree/neo-tree.nvim',
-  cmd = 'Neotree',
+  lazy = false,
   keys = {
-    { '<leader>n', ':Neotree reveal toggle<CR>' },
+    { '<leader>n', ':Neotree reveal toggle<CR>' },  -- Toggle Neo-tree with <leader>n
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -69,6 +68,7 @@ return {
       },
     },
     filesystem = {
+      hijack_netrw_behavior = "open_current",
       filtered_items = {
         hide_dotfiles = false,
         hide_by_name = {
@@ -81,12 +81,15 @@ return {
       group_empty_dirs = false
     },
   },
-  config = function()
-    -- Automatically open Neo-tree on startup
-    vim.cmd([[autocmd VimEnter * Neotree position=current]])
+  config = function(_, opts)
+    -- Apply options to Neo-tree
+    require("neo-tree").setup(opts)
+
     -- Open Neo-tree in fullscreen at the current file's location
     vim.keymap.set("n", "-", ":Neotree reveal position=current<CR>")
+
     -- Close/toggle the full view of Neo-tree
     vim.keymap.set("n", "_", ":Neotree close<CR>")
-  end,
+  end
 }
+
