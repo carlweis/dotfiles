@@ -9,7 +9,7 @@ return {
     vim.keymap.set("n", "<Leader>ts", ":TestSuite<CR>")
     vim.keymap.set("n", "<Leader>tl", ":TestLast<CR>")
     vim.keymap.set("n", "<Leader>tv", ":TestVisit<CR>")
-    vim.keymap.set("n", "<Leader>ap", ":VtrAttachToPane<CR>")
+    vim.keymap.set("n", "<Leader>ap", ":VtrAttachToPane<CR><CR>")
 
     vim.cmd([[
       let g:test#strategy = 'vtr'
