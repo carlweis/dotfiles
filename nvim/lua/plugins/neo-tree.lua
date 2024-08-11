@@ -1,3 +1,7 @@
+-- Disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- File tree sidebar
 return {
   'nvim-neo-tree/neo-tree.nvim',
@@ -14,7 +18,7 @@ return {
       opts = {
         filter_rules = {
           autoselect_one = true,
-          include_current_win = false,
+          include_current_win = true,  -- Allow the current window to be selected
           bo = {
             filetype = { 'neo-tree', "neo-tree-popup", "notify" },
             buftype = { 'terminal', "quickfix" },
@@ -64,7 +68,7 @@ return {
     },
     window = {
       mappings = {
-        ["<cr>"] = "open_with_window_picker",
+        ["<cr>"] = "open",  -- Open file directly without window picker
       },
     },
     filesystem = {
@@ -92,4 +96,3 @@ return {
     vim.keymap.set("n", "_", ":Neotree close<CR>")
   end
 }
-
