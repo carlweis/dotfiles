@@ -103,6 +103,33 @@ return {
     -- Tailwind CSS
     require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
 
+    -- CLang
+    require("lspconfig").clangd.setup({
+      capabilities = capabilities,
+      cmd = {
+        "clangd",
+        "--compile-commands-dir=.",                     -- Point clangd to the directory with compile_commands.json
+      },
+      init_options = {
+        clangdFileStatus = true,
+        usePlaceholders = true,
+        completeUnimported = true,
+      },
+      on_attach = function(client, bufnr)
+        -- Other setup steps
+      end,
+      -- If compile_commands.json is not present, you can manually specify include paths
+      -- Uncomment and customize the following lines if needed
+      -- cmd = {
+      --   "clangd",
+      --   "--compile-commands-dir=.",
+      --   "--header-insertion=iwyu",
+      --   "--query-driver=/opt/homebrew/opt/sfml/include/**", -- Point to the SFML include directory
+      --   "--extra-arg=-I/opt/homebrew/opt/sfml/include",    -- Manually include SFML headers
+      --   "--extra-arg=-L/opt/homebrew/opt/sfml/lib",        -- Manually include SFML libraries
+      -- },
+    })
+
     -- Ruby
     require("lspconfig").solargraph.setup({
       capabilities = capabilities,
@@ -113,7 +140,7 @@ return {
           vim.lsp.buf.inlay_hint(bufnr, true)
         end
 
-       -- client.server_capabilities.diagnosticProvider = false -- Disable diagnostics for Solargraph
+        -- client.server_capabilities.diagnosticProvider = false -- Disable diagnostics for Solargraph
       end,
     })
 
@@ -236,50 +263,3 @@ return {
     vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
   end,
 }
-
--- return {
---   {
---     "williamboman/mason.nvim",
---     config = function()
---       require("mason").setup()
---     end
---   },
---   {
---     "williamboman/mason-lspconfig.nvim",
---     config = function()
---       require("mason-lspconfig").setup({
---         automatic_installation = true
---       })
---     end
---   },
---   {
---     "neovim/nvim-lspconfig",
---     config = function()
---       local capabilities = require('cmp_nvim_lsp').default_capabilities()
---       local lspconfig = require("lspconfig")
-
---       lspconfig.cssls.setup({ capabilities = capabilities })
---       lspconfig.eslint.setup({ capabilities = capabilities })
---       lspconfig.html.setup({ capabilities = capabilities })
---       lspconfig.jsonls.setup({ capabilities = capabilities })
---       lspconfig.lua_ls.setup({ capabilities = capabilities })
---       lspconfig.rubocop.setup({ capabilities = capabilities })
---       lspconfig.solargraph.setup({ capabilities = capabilities })
---       lspconfig.tsserver.setup({ capabilities = capabilities })
---       lspconfig.tailwindcss.setup({ capabilities = capabilities })
---       lspconfig.emmet_language_server.setup({ capabilities = capabilities })
---       lspconfig.stimulus_ls.setup({ capabilities = capabilities })
---       -- lspconfig.erb_formatter.setup({ capabilities = capabilities })
---       -- lspconfig.erb_lint.setup({ capabilities = capabilities })
-
---       local opts = { noremap = true, silent = true }
---       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
---       vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
---       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
---       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
---       -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
---       vim.keymap.set({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action, opts)
---       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
---     end
---   }
--- }

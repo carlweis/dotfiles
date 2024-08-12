@@ -178,3 +178,8 @@ export TERM=xterm
  reload-kitty() {
     kill -SIGUSR1 $(pgrep kitty)
 }
+
+
+# SFML
+export CPLUS_INCLUDE_PATH=/opt/homebrew/opt/sfml/include:$CPLUS_INCLUDE_PATH
+export LIBRARY_PATH=/opt/homebrew/opt/sfml/lib:$LIBRARY_PATH
