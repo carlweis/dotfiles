@@ -21,6 +21,124 @@ return {
 
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+    -- Lua
+    require("lspconfig").lua_ls.setup({
+      settings = {
+        Lua = {
+          runtime = { version = "LuaJIT" },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              "${3rd}/luv/library",
+              unpack(vim.api.nvim_get_runtime_file("", true)),
+            },
+          },
+        },
+      },
+    })
+
+    -- Ruby
+    require("lspconfig").ruby_lsp.setup({
+      capabilities = capabilities,
+      cmd = {"/Users/carl/.asdf/shims/ruby-lsp"},
+    })
+
+    -- require("lspconfig").solargraph.setup({
+    --   capabilities = capabilities,
+    --   on_attach = function(client, bufnr)
+    --     client.server_capabilities.documentFormattingProvider = false
+    --     client.server_capabilities.documentRangeFormattingProvider = false
+    --     if client.server_capabilities.inlayHintProvider then
+    --       vim.lsp.buf.inlay_hint(bufnr, true)
+    --     end
+
+    --     -- client.server_capabilities.diagnosticProvider = false -- Disable diagnostics for Solargraph
+    --   end,
+    -- })
+
+    require("lspconfig").rubocop.setup({
+      capabilities = capabilities,
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        if client.server_capabilities.inlayHintProvider then
+          vim.lsp.buf.inlay_hint(bufnr, true)
+        end
+      end,
+    })
+
+    -- Tailwind CSS
+    require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
+
+    -- Vue, JavaScript, TypeScript
+    require("lspconfig").volar.setup({
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+        if client.server_capabilities.inlayHintProvider then
+          vim.lsp.buf.inlay_hint(bufnr, true)
+        end
+      end,
+      capabilities = capabilities,
+    })
+
+    require("lspconfig").tsserver.setup({
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+            languages = { "javascript", "typescript", "vue" },
+          },
+        },
+      },
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "vue",
+      },
+    })
+
+    -- CLang
+    require("lspconfig").clangd.setup({
+      capabilities = capabilities,
+      cmd = {
+        "clangd",
+        "--compile-commands-dir=.",                     -- Point clangd to the directory with compile_commands.json
+      },
+      init_options = {
+        clangdFileStatus = true,
+        usePlaceholders = true,
+        completeUnimported = true,
+      },
+      on_attach = function(client, bufnr)
+        -- Other setup steps
+      end,
+      -- If compile_commands.json is not present, you can manually specify include paths
+      -- Uncomment and customize the following lines if needed
+      -- cmd = {
+      --   "clangd",
+      --   "--compile-commands-dir=.",
+      --   "--header-insertion=iwyu",
+      --   "--query-driver=/opt/homebrew/opt/sfml/include/**", -- Point to the SFML include directory
+      --   "--extra-arg=-I/opt/homebrew/opt/sfml/include",    -- Manually include SFML headers
+      --   "--extra-arg=-L/opt/homebrew/opt/sfml/lib",        -- Manually include SFML libraries
+      -- },
+    })
+
+    -- JSON
+    require("lspconfig").jsonls.setup({
+      capabilities = capabilities,
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+        },
+      },
+    })
     -- PHP
     -- require("lspconfig").intelephense.setup({
     --   commands = {
@@ -66,121 +184,6 @@ return {
     --     ['textDocument/publishDiagnostics'] = function() end
     --   }
     -- })
-
-    -- Vue, JavaScript, TypeScript
-    require("lspconfig").volar.setup({
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-        if client.server_capabilities.inlayHintProvider then
-          vim.lsp.buf.inlay_hint(bufnr, true)
-        end
-      end,
-      capabilities = capabilities,
-    })
-
-    require("lspconfig").tsserver.setup({
-      init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-            languages = { "javascript", "typescript", "vue" },
-          },
-        },
-      },
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
-      },
-    })
-
-    -- Tailwind CSS
-    require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
-
-    -- CLang
-    require("lspconfig").clangd.setup({
-      capabilities = capabilities,
-      cmd = {
-        "clangd",
-        "--compile-commands-dir=.",                     -- Point clangd to the directory with compile_commands.json
-      },
-      init_options = {
-        clangdFileStatus = true,
-        usePlaceholders = true,
-        completeUnimported = true,
-      },
-      on_attach = function(client, bufnr)
-        -- Other setup steps
-      end,
-      -- If compile_commands.json is not present, you can manually specify include paths
-      -- Uncomment and customize the following lines if needed
-      -- cmd = {
-      --   "clangd",
-      --   "--compile-commands-dir=.",
-      --   "--header-insertion=iwyu",
-      --   "--query-driver=/opt/homebrew/opt/sfml/include/**", -- Point to the SFML include directory
-      --   "--extra-arg=-I/opt/homebrew/opt/sfml/include",    -- Manually include SFML headers
-      --   "--extra-arg=-L/opt/homebrew/opt/sfml/lib",        -- Manually include SFML libraries
-      -- },
-    })
-
-    -- Ruby
-    require("lspconfig").solargraph.setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-        if client.server_capabilities.inlayHintProvider then
-          vim.lsp.buf.inlay_hint(bufnr, true)
-        end
-
-        -- client.server_capabilities.diagnosticProvider = false -- Disable diagnostics for Solargraph
-      end,
-    })
-
-    require("lspconfig").rubocop.setup({
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-        if client.server_capabilities.inlayHintProvider then
-          vim.lsp.buf.inlay_hint(bufnr, true)
-        end
-      end,
-    })
-
-    -- JSON
-    require("lspconfig").jsonls.setup({
-      capabilities = capabilities,
-      settings = {
-        json = {
-          schemas = require("schemastore").json.schemas(),
-        },
-      },
-    })
-
-    -- Lua
-    require("lspconfig").lua_ls.setup({
-      settings = {
-        Lua = {
-          runtime = { version = "LuaJIT" },
-          workspace = {
-            checkThirdParty = false,
-            library = {
-              "${3rd}/luv/library",
-              unpack(vim.api.nvim_get_runtime_file("", true)),
-            },
-          },
-        },
-      },
-    })
-
     -- null-ls
     local null_ls = require("null-ls")
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

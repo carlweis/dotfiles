@@ -19,7 +19,7 @@ vim.opt.backupdir:remove('.')       -- Exclude current directory from backups
 vim.opt.undofile = true             -- Enable persistent undo
 
 -- Interface
-vim.opt.cursorline = true           -- Highlight the current line
+vim.opt.cursorline = false           -- Highlight the current line
 vim.opt.fillchars:append({ eob = ' ' }) -- Remove the ~ from the end of buffer
 vim.opt.mouse = 'a'                 -- Enable mouse for all modes
 vim.opt.scrolloff = 8               -- Minimum lines to keep above and below the cursor
