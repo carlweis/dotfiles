@@ -7,7 +7,7 @@ return {
     require("catppuccin").setup({
       color_overrides = {
         all = {
-          base = "#212121",
+          base = "#252526",
           mantle = "#282828",
           crust = "#292929",
         },
