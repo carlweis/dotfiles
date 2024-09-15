@@ -16,14 +16,13 @@ return {
       vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#212122", fg="#212122"})
       vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#212122", fg="#212122"})
       vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#212122", fg="#212122"})
-      vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#212122", fg="#bcbcbc"})
+      vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#212122", fg="#6c7086"})
       vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#212122", fg="#212122"})
       vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="#212122", fg="#6c7086"})
-      vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#2E2E30", fg="#cdd6f5"})
+      vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#282829", fg="#cdd6f5"})
       vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#212122", fg="#212122"})
       vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#212122", fg="#212122"})
-      -- vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#d7d787"})
-      vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#a6e3a2"})
+      vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#b4beff"})
 
       -- Keymaps
       vim.keymap.set("n", "<leader>f", builtin.find_files, {})
