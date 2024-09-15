@@ -9,6 +9,9 @@ vim.opt.softtabstop = 2             -- Number of spaces for a soft tab
 vim.opt.shiftwidth = 2              -- Number of spaces to use for autoindent
 vim.opt.smartindent = true          -- Smart autoindenting
 
+-- Cursor
+vim.opt.guicursor = "n-v-i-c:block-Cursor" -- Change cursor shape in different modes
+
 -- Line Numbers
 vim.opt.number = true               -- Show line numbers
 vim.opt.relativenumber = true       -- Show relative line numbers
@@ -31,8 +34,8 @@ vim.opt.termguicolors = true        -- Enable true color support
 vim.opt.title = true                -- Set the terminal title
 vim.opt.wrap = false                -- Disable line wrapping
 vim.opt.list = true                 -- Show whitespace characters
-vim.opt.listchars = { tab = '▸ ', trail = '·' } -- Characters to use for displaying whitespace
 vim.opt.cmdheight = 0               -- Makes the command line appear and disappear faster
+vim.opt.listchars = { tab = '▸ ', trail = '·' } -- Characters to use for displaying whitespace
 
 -- Clipboard
 vim.opt.clipboard = 'unnamedplus'   -- Use system clipboard

@@ -23,7 +23,7 @@ return {
       vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#212122", fg="#212122"})
       vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#212122", fg="#212122"})
       -- vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#d7d787"})
-      vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#87afaf"})
+      vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#a6e3a2"})
 
       -- Keymaps
       vim.keymap.set("n", "<leader>f", builtin.find_files, {})
