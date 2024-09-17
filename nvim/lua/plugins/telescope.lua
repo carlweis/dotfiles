@@ -26,12 +26,11 @@ return {
 
       -- Keymaps
       vim.keymap.set("n", "<leader>f", builtin.find_files, {})
-      vim.keymap.set("n", "<leader>g", builtin.live_grep, {})
+      vim.keymap.set('n', '<leader>g', telescope.extensions.live_grep_args.live_grep_args, {})
       vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 
       -- vim.keymap.set('n', '<leader>f', builtin.find_files, {})
       -- vim.keymap.set('n', '<leader>F', builtin.find_files, { no_ignore = true, prompt_title = 'All Files' })
-      -- vim.keymap.set('n', '<leader>g', telescope.extensions.live_grep_args.live_grep_args, {})
       -- vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, {})
       -- vim.keymap.set('n', '<leader>o', builtin.lsp_document_diagnostics, {})
       -- vim.keymap.set('n', '<leader>l', builtin.lsp_references, {})
