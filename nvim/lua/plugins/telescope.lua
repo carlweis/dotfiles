@@ -13,41 +13,25 @@ return {
       telescope.load_extension('live_grep_args')
 
       -- Styles
-      vim.api.nvim_set_hl(0, "TelescopeNormal", {bg="#212122", fg="#212122"})
-      vim.api.nvim_set_hl(0, "TelescopeBorder", {bg="#212122", fg="#212122"})
-      vim.api.nvim_set_hl(0, "TelescopePromptBorder", {bg="#212122", fg="#212122"})
-      vim.api.nvim_set_hl(0, "TelescopePromptNormal", {bg="#212122", fg="#6c7086"})
-      vim.api.nvim_set_hl(0, "TelescopePromptTitle", {bg="#212122", fg="#212122"})
-      vim.api.nvim_set_hl(0, "TelescopeResultsNormal", {bg="#212122", fg="#6c7086"})
-      vim.api.nvim_set_hl(0, "TelescopeSelection", {bg="#282829", fg="#cdd6f5"})
-      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", {bg="#212122", fg="#212122"})
-      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", {bg="#212122", fg="#212122"})
-      vim.api.nvim_set_hl(0, "TelescopeMatching", {fg="#b4beff"})
+      vim.api.nvim_set_hl(0, "TelescopeNormal", { bg="#212122", fg="#212122" })
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { bg="#212122", fg="#212122" })
+      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg="#212122", fg="#212122" })
+      vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg="#212122", fg="#6c7086" })
+      vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg="#212122", fg="#212122" })
+      vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg="#212122", fg="#6c7086" })
+      vim.api.nvim_set_hl(0, "TelescopeSelection", { bg="#282829", fg="#cdd6f5" })
+      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg="#212122", fg="#212122" })
+      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg="#212122", fg="#212122" })
+      vim.api.nvim_set_hl(0, "TelescopeMatching", { fg="#b4beff" })
 
       -- Keymaps
       vim.keymap.set("n", "<leader>f", builtin.find_files, {})
       vim.keymap.set('n', '<leader>g', telescope.extensions.live_grep_args.live_grep_args, {})
       vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 
-      -- vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-      -- vim.keymap.set('n', '<leader>F', builtin.find_files, { no_ignore = true, prompt_title = 'All Files' })
-      -- vim.keymap.set('n', '<leader>s', builtin.lsp_document_symbols, {})
-      -- vim.keymap.set('n', '<leader>o', builtin.lsp_document_diagnostics, {})
-      -- vim.keymap.set('n', '<leader>l', builtin.lsp_references, {})
-    end
-  },
-  {
-    "nvim-telescope/telescope-ui-select.nvim",
-    config = function()
-      local actions = require('telescope.actions')
+      -- Telescope setup
       require("telescope").setup({
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown {
-            }
-          }
-        },
-         defaults = {
+        defaults = {
           path_display = { truncate = 1 },
           prompt_prefix = '  ',
           selection_caret = '  ',
@@ -57,36 +41,44 @@ return {
           sorting_strategy = 'ascending',
           mappings = {
             i = {
-              ['<esc>'] = actions.close,
-              ['<C-Down>'] = actions.cycle_history_next,
-              ['<C-Up>'] = actions.cycle_history_prev,
+              ['<esc>'] = require('telescope.actions').close,
+              ['<C-Down>'] = require('telescope.actions').cycle_history_next,
+              ['<C-Up>'] = require('telescope.actions').cycle_history_prev,
             },
           },
           file_ignore_patterns = { '.git/' },
         },
         pickers = {
-          find_files = {
+          find_files = require("telescope.themes").get_dropdown({
             previewer = false,
             hidden = true,
-            theme = 'dropdown',
-          },
-          buffers = {
+          }),
+          buffers = require("telescope.themes").get_dropdown({
             previewer = false,
-            theme = 'dropdown',
             layout_config = {
               width = 120,
             },
-          },
-          oldfiles = {
+          }),
+          oldfiles = require("telescope.themes").get_dropdown({
             previewer = false,
-            theme = 'dropdown',
             prompt_title = 'History',
-          },
-          lsp_references = {
+          }),
+          lsp_references = require("telescope.themes").get_dropdown({
             previewer = false,
-            theme = 'dropdown',
-          },
+          }),
         },
+      })
+    end
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      require("telescope").setup({
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown {}
+          }
+        }
       })
       require("telescope").load_extension("ui-select")
     end

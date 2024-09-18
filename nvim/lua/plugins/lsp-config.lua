@@ -24,6 +24,7 @@ return {
 
     -- Lua (lua_ls) setup
     require("lspconfig").lua_ls.setup({
+      capabilities = capabilities,
       settings = {
         Lua = {
           runtime = { version = "LuaJIT" },
@@ -33,7 +34,6 @@ return {
           },
         },
       },
-      capabilities = capabilities,
     })
 
     -- Ruby (ruby_lsp) setup
@@ -47,8 +47,12 @@ return {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         -- Disable formatting and range formatting, handled by null-ls
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
+        if client.server_capabilities.documentFormattingProvider then
+          client.server_capabilities.documentFormattingProvider = false
+        end
+        if client.server_capabilities.documentRangeFormattingProvider then
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end
         -- Enable inlay hints if supported
         if client.server_capabilities.inlayHintProvider then
           vim.lsp.buf.inlay_hint(bufnr, true)
@@ -65,8 +69,13 @@ return {
     require("lspconfig").volar.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
+        -- Safely disable formatting
+        if client.server_capabilities.documentFormattingProvider then
+          client.server_capabilities.documentFormattingProvider = false
+        end
+        if client.server_capabilities.documentRangeFormattingProvider then
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end
         if client.server_capabilities.inlayHintProvider then
           vim.lsp.buf.inlay_hint(bufnr, true)
         end
@@ -116,8 +125,12 @@ return {
         },
       },
       on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
+        if client.server_capabilities.documentFormattingProvider then
+          client.server_capabilities.documentFormattingProvider = false
+        end
+        if client.server_capabilities.documentRangeFormattingProvider then
+          client.server_capabilities.documentRangeFormattingProvider = false
+        end
       end,
       capabilities = capabilities,
     })
@@ -188,15 +201,15 @@ return {
     require("mason-null-ls").setup({ automatic_installation = true })
 
     -- Keymaps
-    vim.keymap.set("n", "<Leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
+    vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float)
     vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")
-    vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+    vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
     vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>")
     vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
     vim.keymap.set("n", "<Leader>lr", ":LspRestart<CR>", { silent = true })
-    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-    vim.keymap.set("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-    vim.keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+    vim.keymap.set("n", "K", vim.lsp.buf.hover)
+    vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
+    vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action)
 
     -- Commands
     vim.api.nvim_create_user_command("Format", function()
