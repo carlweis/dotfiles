@@ -11,7 +11,7 @@ return {
     "jayp0521/mason-null-ls.nvim",
   },
   config = function()
-    -- Setup Mason to automatically install LSP servers
+    -- Setup Mason to manage LSP installations
     require("mason").setup({
       ui = {
         height = 0.8,
@@ -19,59 +19,51 @@ return {
     })
     require("mason-lspconfig").setup({ automatic_installation = true })
 
-    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    -- Set LSP capabilities with nvim-cmp for autocompletion
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    -- Lua
+    -- Lua (lua_ls) setup
     require("lspconfig").lua_ls.setup({
       settings = {
         Lua = {
           runtime = { version = "LuaJIT" },
           workspace = {
             checkThirdParty = false,
-            library = {
-              "${3rd}/luv/library",
-              unpack(vim.api.nvim_get_runtime_file("", true)),
-            },
+            library = vim.api.nvim_get_runtime_file("", true),
           },
         },
       },
+      capabilities = capabilities,
     })
 
-    -- Ruby
+    -- Ruby (ruby_lsp) setup
     require("lspconfig").ruby_lsp.setup({
       capabilities = capabilities,
-      cmd = {"/Users/carl/.asdf/shims/ruby-lsp"},
+      cmd = { "/Users/carl/.asdf/shims/ruby-lsp" },
     })
 
-    -- require("lspconfig").solargraph.setup({
-    --   capabilities = capabilities,
-    --   on_attach = function(client, bufnr)
-    --     client.server_capabilities.documentFormattingProvider = false
-    --     client.server_capabilities.documentRangeFormattingProvider = false
-    --     if client.server_capabilities.inlayHintProvider then
-    --       vim.lsp.buf.inlay_hint(bufnr, true)
-    --     end
-
-    --     -- client.server_capabilities.diagnosticProvider = false -- Disable diagnostics for Solargraph
-    --   end,
-    -- })
-
+    -- RuboCop setup
     require("lspconfig").rubocop.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
+        -- Disable formatting and range formatting, handled by null-ls
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
+        -- Enable inlay hints if supported
         if client.server_capabilities.inlayHintProvider then
           vim.lsp.buf.inlay_hint(bufnr, true)
         end
       end,
     })
 
-    -- Tailwind CSS
-    require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
+    -- Tailwind CSS setup
+    require("lspconfig").tailwindcss.setup({
+      capabilities = capabilities,
+    })
 
-    -- Vue, JavaScript, TypeScript
+    -- Vue and TypeScript (volar) setup
     require("lspconfig").volar.setup({
+      capabilities = capabilities,
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
@@ -79,58 +71,32 @@ return {
           vim.lsp.buf.inlay_hint(bufnr, true)
         end
       end,
-      capabilities = capabilities,
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
     })
 
+    -- TypeScript/JavaScript (tsserver) setup
     require("lspconfig").tsserver.setup({
+      capabilities = capabilities,
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx" },
       init_options = {
         plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-            languages = { "javascript", "typescript", "vue" },
-          },
+          { name = "@vue/typescript-plugin", location = "/usr/local/lib/node_modules/@vue/typescript-plugin" },
         },
-      },
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
       },
     })
 
-    -- CLang
+    -- CLang setup
     require("lspconfig").clangd.setup({
       capabilities = capabilities,
-      cmd = {
-        "clangd",
-        "--compile-commands-dir=.",                     -- Point clangd to the directory with compile_commands.json
-      },
+      cmd = { "clangd", "--compile-commands-dir=." },
       init_options = {
         clangdFileStatus = true,
         usePlaceholders = true,
         completeUnimported = true,
       },
-      on_attach = function(client, bufnr)
-        -- Other setup steps
-      end,
-      -- If compile_commands.json is not present, you can manually specify include paths
-      -- Uncomment and customize the following lines if needed
-      -- cmd = {
-      --   "clangd",
-      --   "--compile-commands-dir=.",
-      --   "--header-insertion=iwyu",
-      --   "--query-driver=/opt/homebrew/opt/sfml/include/**", -- Point to the SFML include directory
-      --   "--extra-arg=-I/opt/homebrew/opt/sfml/include",    -- Manually include SFML headers
-      --   "--extra-arg=-L/opt/homebrew/opt/sfml/lib",        -- Manually include SFML libraries
-      -- },
     })
 
-    -- JSON
+    -- JSON setup
     require("lspconfig").jsonls.setup({
       capabilities = capabilities,
       settings = {
@@ -140,7 +106,7 @@ return {
       },
     })
 
-    -- PHP
+    -- PHP setup (Intelephense)
     require("lspconfig").intelephense.setup({
       commands = {
         IntelephenseIndex = {
@@ -152,51 +118,40 @@ return {
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
-        -- if client.server_capabilities.inlayHintProvider then
-        --   vim.lsp.buf.inlay_hint(bufnr, true)
-        -- end
       end,
       capabilities = capabilities,
     })
 
-    require('lspconfig').phpactor.setup({
+    -- PHP setup (PHPActor)
+    require("lspconfig").phpactor.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        client.server_capabilities.completionProvider = false
-        client.server_capabilities.hoverProvider = false
-        client.server_capabilities.implementationProvider = false
-        client.server_capabilities.referencesProvider = false
-        client.server_capabilities.renameProvider = false
-        client.server_capabilities.selectionRangeProvider = false
-        client.server_capabilities.signatureHelpProvider = false
-        client.server_capabilities.typeDefinitionProvider = false
-        client.server_capabilities.workspaceSymbolProvider = false
-        client.server_capabilities.definitionProvider = false
-        client.server_capabilities.documentHighlightProvider = false
-        client.server_capabilities.documentSymbolProvider = false
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
+        -- Disable unnecessary features for performance
+        for _, capability in ipairs({
+          "completionProvider", "hoverProvider", "implementationProvider", "referencesProvider",
+          "renameProvider", "selectionRangeProvider", "signatureHelpProvider", "typeDefinitionProvider",
+          "workspaceSymbolProvider", "definitionProvider", "documentHighlightProvider",
+          "documentSymbolProvider", "documentFormattingProvider", "documentRangeFormattingProvider",
+        }) do
+          client.server_capabilities[capability] = false
+        end
       end,
-      init_options = {
-        ["language_server_phpstan.enabled"] = false,
-        ["language_server_psalm.enabled"] = false,
-      },
       handlers = {
-        ['textDocument/publishDiagnostics'] = function() end
-      }
+        ["textDocument/publishDiagnostics"] = function() end, -- Disable diagnostics
+      },
     })
-    -- null-ls
+
+    -- null-ls setup for linting and formatting
     local null_ls = require("null-ls")
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
     null_ls.setup({
-      temp_dir = "/tmp",
       sources = {
         null_ls.builtins.diagnostics.eslint_d.with({
           condition = function(utils)
             return utils.root_has_file({ ".eslintrc.js" })
           end,
         }),
-        -- null_ls.builtins.diagnostics.phpstan, -- TODO: Only if config file
         null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { "NvimTree" } }),
         null_ls.builtins.formatting.eslint_d.with({
           condition = function(utils)
@@ -211,11 +166,7 @@ return {
         null_ls.builtins.formatting.prettier.with({
           condition = function(utils)
             return utils.root_has_file({
-              ".prettierrc",
-              ".prettierrc.json",
-              ".prettierrc.yml",
-              ".prettierrc.js",
-              "prettier.config.js",
+              ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.js", "prettier.config.js",
             })
           end,
         }),
@@ -254,16 +205,15 @@ return {
 
     -- Diagnostic configuration
     vim.diagnostic.config({
-      virtual_text = false, -- Disable virtual text diagnostics
-      float = {
-        source = true,
-      },
+      virtual_text = false,
+      float = { source = true },
     })
 
-    -- Sign configuration
+    -- Diagnostic signs
     vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
     vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
     vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
     vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
   end,
 }
+

@@ -13,6 +13,7 @@ return {
 
     vim.cmd([[
       let g:test#strategy = 'vtr'
+      let g:test#ruby#rspec#executable = 'bundle exec rspec'
     ]])
   end,
 }
