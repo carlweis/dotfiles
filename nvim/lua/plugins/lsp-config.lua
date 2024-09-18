@@ -11,7 +11,7 @@ return {
     "jayp0521/mason-null-ls.nvim",
   },
   config = function()
-    -- Setup Mason to manage LSP installations
+    -- Setup Mason to automatically install LSP servers
     require("mason").setup({
       ui = {
         height = 0.8,
@@ -19,93 +19,112 @@ return {
     })
     require("mason-lspconfig").setup({ automatic_installation = true })
 
-    -- Set LSP capabilities with nvim-cmp for autocompletion
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-    -- Lua (lua_ls) setup
+    -- Lua
     require("lspconfig").lua_ls.setup({
-      capabilities = capabilities,
       settings = {
         Lua = {
           runtime = { version = "LuaJIT" },
           workspace = {
             checkThirdParty = false,
-            library = vim.api.nvim_get_runtime_file("", true),
+            library = {
+              "${3rd}/luv/library",
+              unpack(vim.api.nvim_get_runtime_file("", true)),
+            },
           },
         },
       },
     })
 
-    -- Ruby (ruby_lsp) setup
+    -- Ruby
     require("lspconfig").ruby_lsp.setup({
       capabilities = capabilities,
-      cmd = { "/Users/carl/.asdf/shims/ruby-lsp" },
+      cmd = {"/Users/carl/.asdf/shims/ruby-lsp"},
     })
 
-    -- RuboCop setup
+    -- require("lspconfig").solargraph.setup({
+    --   capabilities = capabilities,
+    --   on_attach = function(client, bufnr)
+    --     if client.server_capabilities.inlayHintProvider then
+    --       vim.lsp.buf.inlay_hint(bufnr, true)
+    --     end
+
+    --     -- client.server_capabilities.diagnosticProvider = false -- Disable diagnostics for Solargraph
+    --   end,
+    -- })
+
     require("lspconfig").rubocop.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        -- Disable formatting and range formatting, handled by null-ls
-        if client.server_capabilities.documentFormattingProvider then
-          client.server_capabilities.documentFormattingProvider = false
-        end
-        if client.server_capabilities.documentRangeFormattingProvider then
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end
-        -- Enable inlay hints if supported
         if client.server_capabilities.inlayHintProvider then
           vim.lsp.buf.inlay_hint(bufnr, true)
         end
       end,
     })
 
-    -- Tailwind CSS setup
-    require("lspconfig").tailwindcss.setup({
-      capabilities = capabilities,
-    })
+    -- Tailwind CSS
+    require("lspconfig").tailwindcss.setup({ capabilities = capabilities })
 
-    -- Vue and TypeScript (volar) setup
+    -- Vue, JavaScript, TypeScript
     require("lspconfig").volar.setup({
-      capabilities = capabilities,
       on_attach = function(client, bufnr)
-        -- Safely disable formatting
-        if client.server_capabilities.documentFormattingProvider then
-          client.server_capabilities.documentFormattingProvider = false
-        end
-        if client.server_capabilities.documentRangeFormattingProvider then
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end
         if client.server_capabilities.inlayHintProvider then
           vim.lsp.buf.inlay_hint(bufnr, true)
         end
       end,
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+      capabilities = capabilities,
     })
 
-    -- TypeScript/JavaScript (tsserver) setup
     require("lspconfig").tsserver.setup({
-      capabilities = capabilities,
-      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "typescript.tsx" },
       init_options = {
         plugins = {
-          { name = "@vue/typescript-plugin", location = "/usr/local/lib/node_modules/@vue/typescript-plugin" },
+          {
+            name = "@vue/typescript-plugin",
+            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+            languages = { "javascript", "typescript", "vue" },
+          },
         },
+      },
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "javascript.jsx",
+        "typescript",
+        "typescriptreact",
+        "typescript.tsx",
+        "vue",
       },
     })
 
-    -- CLang setup
+    -- CLang
     require("lspconfig").clangd.setup({
       capabilities = capabilities,
-      cmd = { "clangd", "--compile-commands-dir=." },
+      cmd = {
+        "clangd",
+        "--compile-commands-dir=.",                     -- Point clangd to the directory with compile_commands.json
+      },
       init_options = {
         clangdFileStatus = true,
         usePlaceholders = true,
         completeUnimported = true,
       },
+      on_attach = function(client, bufnr)
+        -- Other setup steps
+      end,
+      -- If compile_commands.json is not present, you can manually specify include paths
+      -- Uncomment and customize the following lines if needed
+      -- cmd = {
+      --   "clangd",
+      --   "--compile-commands-dir=.",
+      --   "--header-insertion=iwyu",
+      --   "--query-driver=/opt/homebrew/opt/sfml/include/**", -- Point to the SFML include directory
+      --   "--extra-arg=-I/opt/homebrew/opt/sfml/include",    -- Manually include SFML headers
+      --   "--extra-arg=-L/opt/homebrew/opt/sfml/lib",        -- Manually include SFML libraries
+      -- },
     })
 
-    -- JSON setup
+    -- JSON
     require("lspconfig").jsonls.setup({
       capabilities = capabilities,
       settings = {
@@ -115,7 +134,7 @@ return {
       },
     })
 
-    -- PHP setup (Intelephense)
+    -- PHP
     require("lspconfig").intelephense.setup({
       commands = {
         IntelephenseIndex = {
@@ -125,46 +144,49 @@ return {
         },
       },
       on_attach = function(client, bufnr)
-        if client.server_capabilities.documentFormattingProvider then
-          client.server_capabilities.documentFormattingProvider = false
-        end
-        if client.server_capabilities.documentRangeFormattingProvider then
-          client.server_capabilities.documentRangeFormattingProvider = false
-        end
+        -- if client.server_capabilities.inlayHintProvider then
+        --   vim.lsp.buf.inlay_hint(bufnr, true)
+        -- end
       end,
       capabilities = capabilities,
     })
 
-    -- PHP setup (PHPActor)
-    require("lspconfig").phpactor.setup({
+    require('lspconfig').phpactor.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
-        -- Disable unnecessary features for performance
-        for _, capability in ipairs({
-          "completionProvider", "hoverProvider", "implementationProvider", "referencesProvider",
-          "renameProvider", "selectionRangeProvider", "signatureHelpProvider", "typeDefinitionProvider",
-          "workspaceSymbolProvider", "definitionProvider", "documentHighlightProvider",
-          "documentSymbolProvider", "documentFormattingProvider", "documentRangeFormattingProvider",
-        }) do
-          client.server_capabilities[capability] = false
-        end
+        client.server_capabilities.completionProvider = false
+        client.server_capabilities.hoverProvider = false
+        client.server_capabilities.implementationProvider = false
+        client.server_capabilities.referencesProvider = false
+        client.server_capabilities.renameProvider = false
+        client.server_capabilities.selectionRangeProvider = false
+        client.server_capabilities.signatureHelpProvider = false
+        client.server_capabilities.typeDefinitionProvider = false
+        client.server_capabilities.workspaceSymbolProvider = false
+        client.server_capabilities.definitionProvider = false
+        client.server_capabilities.documentHighlightProvider = false
+        client.server_capabilities.documentSymbolProvider = false
       end,
-      handlers = {
-        ["textDocument/publishDiagnostics"] = function() end, -- Disable diagnostics
+      init_options = {
+        ["language_server_phpstan.enabled"] = false,
+        ["language_server_psalm.enabled"] = false,
       },
+      handlers = {
+        ['textDocument/publishDiagnostics'] = function() end
+      }
     })
-
-    -- null-ls setup for linting and formatting
+    -- null-ls
     local null_ls = require("null-ls")
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
     null_ls.setup({
+      temp_dir = "/tmp",
       sources = {
         null_ls.builtins.diagnostics.eslint_d.with({
           condition = function(utils)
             return utils.root_has_file({ ".eslintrc.js" })
           end,
         }),
+        -- null_ls.builtins.diagnostics.phpstan, -- TODO: Only if config file
         null_ls.builtins.diagnostics.trail_space.with({ disabled_filetypes = { "NvimTree" } }),
         null_ls.builtins.formatting.eslint_d.with({
           condition = function(utils)
@@ -179,7 +201,11 @@ return {
         null_ls.builtins.formatting.prettier.with({
           condition = function(utils)
             return utils.root_has_file({
-              ".prettierrc", ".prettierrc.json", ".prettierrc.yml", ".prettierrc.js", "prettier.config.js",
+              ".prettierrc",
+              ".prettierrc.json",
+              ".prettierrc.yml",
+              ".prettierrc.js",
+              "prettier.config.js",
             })
           end,
         }),
@@ -201,15 +227,15 @@ return {
     require("mason-null-ls").setup({ automatic_installation = true })
 
     -- Keymaps
-    vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float)
+    vim.keymap.set("n", "<Leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>")
     vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")
-    vim.keymap.set("n", "ga", vim.lsp.buf.code_action)
+    vim.keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>")
     vim.keymap.set("n", "gi", ":Telescope lsp_implementations<CR>")
     vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
     vim.keymap.set("n", "<Leader>lr", ":LspRestart<CR>", { silent = true })
-    vim.keymap.set("n", "K", vim.lsp.buf.hover)
-    vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename)
-    vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action)
+    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+    vim.keymap.set("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+    vim.keymap.set("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 
     -- Commands
     vim.api.nvim_create_user_command("Format", function()
@@ -218,15 +244,16 @@ return {
 
     -- Diagnostic configuration
     vim.diagnostic.config({
-      virtual_text = false,
-      float = { source = true },
+      virtual_text = false, -- Disable virtual text diagnostics
+      float = {
+        source = true,
+      },
     })
 
-    -- Diagnostic signs
+    -- Sign configuration
     vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
     vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
     vim.fn.sign_define("DiagnosticSignInfo", { text = "", texthl = "DiagnosticSignInfo" })
     vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
   end,
 }
-
