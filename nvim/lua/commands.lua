@@ -17,12 +17,6 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   command = [[wincmd =]],
 })
 
--- convert tabs to spaces
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-  pattern = { "*" },
-  command = [[retab]],
-})
-
 -- markdown
 vim.api.nvim_create_autocmd({ "BufReadPost" }, {
   pattern = { "*.md" },
