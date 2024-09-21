@@ -84,14 +84,6 @@ return {
       },
       group_empty_dirs = false
     },
-    highlight = {
-      NeoTreeFileName = {
-        bg = "#252526", -- Background color for the highlighted item
-      },
-      NeoTreeFileNameOpened = {
-        bg = "#252526", -- Background color for the opened file
-      },
-    }
   },
   config = function(_, opts)
     -- Apply options to Neo-tree
@@ -102,9 +94,5 @@ return {
 
     -- Close/toggle the full view of Neo-tree
     vim.keymap.set("n", "_", ":Neotree close<CR>")
-
-    -- Custom highlight for selected file
-    vim.cmd([[highlight NeoTreeFileName guibg=#252526]])
-    vim.cmd([[highlight NeoTreeFileNameOpened guibg=#252526]])
   end
 }
