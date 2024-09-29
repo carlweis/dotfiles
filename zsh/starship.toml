@@ -5,7 +5,7 @@
 
 # General settings
 [character]
-success_symbol = "[❯](bold #b083f0)"
+success_symbol = "[❯](bold #ae87af)"
 error_symbol = "[❯](bold red)"
 # symbol = "➜"
 # error_symbol = "✗"
@@ -13,7 +13,7 @@ error_symbol = "[❯](bold red)"
 
 # Configure Git module to show branch and status
 [git_branch]
-style = "bold #dcbdfb"
+style = "bold #afaf87"
 format = "[\\($branch\\)]($style) "
 
 [git_status]
@@ -44,7 +44,7 @@ disabled = true
 [directory]
 truncation_length = 3
 truncate_to_repo = true
-style = "bold #6bb6ff"
+style = "bold #7fa4a4"
 
 # Customize the prompt order to show Rails and other tools prominently
 # [starship]
