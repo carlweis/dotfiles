@@ -98,10 +98,10 @@ fi
 # %{$CYAN%}$sshing%{$GREEN%} %{$BLUE%}${PWD/#$HOME/~}%{$RESET_COLOR%} \
 # %{$MAGENTA%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)$(git_prompt_short_sha)$(parse_git_dirty)%{$RESET_COLOR%}
 # %(?.%{$fg[yellow]%}.%{$fg[red]%})%B$%b '
-PROMPT='
-%{$CYAN%}$sshing%{$GREEN%} %{$GREEN%}${PWD/#$HOME/~}%{$RESET_COLOR%} \
-%{$YELLOW%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)$(parse_git_dirty)%{$RESET_COLOR%}
-%(?.%{$fg[yellow]%}.%{$fg[red]%})%B$%b '
+# PROMPT='
+# %{$CYAN%}$sshing%{$MAGENTA%} %{$MAGENTA%}${PWD/#$HOME/~}%{$RESET_COLOR%} \
+# %{$BLUE%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)$(parse_git_dirty)%{$RESET_COLOR%}
+# %(?.%{$fg[yellow]%}.%{$fg[red]%})%B$%b '
 
 #-----------------------------------------------------
 # FZF - Fuzzy Finder
@@ -190,3 +190,6 @@ export HERD_PHP_83_INI_SCAN_DIR="/Users/carl/Library/Application Support/Herd/co
 
 # Herd injected PHP binary.
 export PATH="/Users/carl/Library/Application Support/Herd/bin/":$PATH
+
+# Starship prompt
+eval "$(starship init zsh)"

@@ -1,0 +1,51 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+
+# General settings
+[character]
+success_symbol = "[❯](bold #b083f0)"
+error_symbol = "[❯](bold red)"
+# symbol = "➜"
+# error_symbol = "✗"
+# use_symbol_for_status = true
+
+# Configure Git module to show branch and status
+[git_branch]
+style = "bold #dcbdfb"
+format = "[\\($branch\\)]($style) "
+
+[git_status]
+format = '[\\($status$ahead_behind$conflicted$untracked$stashed$modified$renamed$deleted$ahead_behind\\)]($style)'
+
+# Configure the Ruby version module
+[ruby]
+format = "via [\\(Ruby $version\\)]($style) "
+disabled = true
+
+# Add a module for Rails environment detection
+# [custom.rails]
+# command = 'if [ -f config/environment.rb ]; then echo "🚀 Rails"; fi'
+# when = "config/environment.rb"
+# format = "[$output]($style) "
+
+# NodeJS version for Rails applications using JavaScript or Webpacker
+[nodejs]
+format = "via [\\(Node $version\\)]($style) "
+disabled = true
+
+# Python (optional) for Rails projects that use Python scripts (for example, in automation)
+[python]
+format = "via [\\(Python $version\\)]($style) "
+disabled = true
+
+# Directory module to show the current folder name
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold #6bb6ff"
+
+# Customize the prompt order to show Rails and other tools prominently
+# [starship]
+# format = "$directory$git_branch$custom.rails$ruby$nodejs$python$git_status$character"

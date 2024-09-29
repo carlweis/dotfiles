@@ -76,26 +76,26 @@ return {
       capabilities = capabilities,
     })
 
-    require("lspconfig").tsserver.setup({
-      init_options = {
-        plugins = {
-          {
-            name = "@vue/typescript-plugin",
-            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-            languages = { "javascript", "typescript", "vue" },
-          },
-        },
-      },
-      filetypes = {
-        "javascript",
-        "javascriptreact",
-        "javascript.jsx",
-        "typescript",
-        "typescriptreact",
-        "typescript.tsx",
-        "vue",
-      },
-    })
+    -- require("lspconfig").tsserver.setup({
+    --   init_options = {
+    --     plugins = {
+    --       {
+    --         name = "@vue/typescript-plugin",
+    --         location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+    --         languages = { "javascript", "typescript", "vue" },
+    --       },
+    --     },
+    --   },
+    --   filetypes = {
+    --     "javascript",
+    --     "javascriptreact",
+    --     "javascript.jsx",
+    --     "typescript",
+    --     "typescriptreact",
+    --     "typescript.tsx",
+    --     "vue",
+    --   },
+    -- })
 
     -- CLang
     require("lspconfig").clangd.setup({
@@ -175,6 +175,7 @@ return {
         ['textDocument/publishDiagnostics'] = function() end
       }
     })
+
     -- null-ls
     local null_ls = require("null-ls")
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

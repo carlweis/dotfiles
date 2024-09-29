@@ -43,6 +43,7 @@ create_symlink "$DOTFILES/zsh/core/" "$HOME/.zsh"
 create_symlink "$DOTFILES/zsh/zshenv" "$HOME/.zshenv"
 create_symlink "$DOTFILES/zsh/zshrc" "$HOME/.zshrc"
 create_symlink "$DOTFILES/zsh/zprofile" "$HOME/.zprofile"
+create_symlink "$DOTFILES/zsh/starship.toml" "$HOME/.config/starship.toml"
 
 # Tmux setup
 create_symlink "$DOTFILES/tmux/tmux.conf" "$HOME/.tmux.conf"
