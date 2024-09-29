@@ -19,10 +19,10 @@ return {
       vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg="#1a1a1a", fg="#767676" })
       vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg="#1a1a1a", fg="#1a1a1a" })
       vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg="#1a1a1a", fg="#585858" })
-      vim.api.nvim_set_hl(0, "TelescopeSelection", { bg="#303030", fg="#afaf87" })
+      vim.api.nvim_set_hl(0, "TelescopeSelection", { bg="#212121", fg="#bcbcbc" })
       vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg="#1a1a1a", fg="#1a1a1a" })
       vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg="#1a1a1a", fg="#1a1a1a" })
-      vim.api.nvim_set_hl(0, "TelescopeMatching", { fg="#87af87" })
+      vim.api.nvim_set_hl(0, "TelescopeMatching", { fg="#87afaf" })
 
       -- Keymaps
       vim.keymap.set("n", "<leader>f", builtin.find_files, {})

@@ -19,5 +19,6 @@ return {
     vim.api.nvim_set_hl(0, "TabLine",      { fg = "#a0a0a0", bg = "#252526" })   -- Unselected tab color
     vim.api.nvim_set_hl(0, "TabLineSel",   { fg = "#87afaf", bg = "#1c1c1c" })   -- Selected tab color
     vim.api.nvim_set_hl(0, "TabLineFill",  { bg = "#252526" })                   -- Background behind tabs
+    vim.api.nvim_set_hl(0, "Search",    { bg = "#afaf87", fg = "#212121" })                      -- Visual selection color
   end,
 }
