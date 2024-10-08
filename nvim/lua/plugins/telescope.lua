@@ -13,16 +13,16 @@ return {
       telescope.load_extension('live_grep_args')
 
       -- Styles
-      vim.api.nvim_set_hl(0, "TelescopeNormal", { bg="#1a1a1a", fg="#1a1a1a" })
-      vim.api.nvim_set_hl(0, "TelescopeBorder", { bg="#1a1a1a", fg="#1a1a1a" })
-      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg="#1a1a1a", fg="#1a1a1a" })
-      vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg="#1a1a1a", fg="#767676" })
-      vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg="#1a1a1a", fg="#1a1a1a" })
-      vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg="#1a1a1a", fg="#585858" })
-      vim.api.nvim_set_hl(0, "TelescopeSelection", { bg="#212121", fg="#bcbcbc" })
-      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg="#1a1a1a", fg="#1a1a1a" })
-      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg="#1a1a1a", fg="#1a1a1a" })
-      vim.api.nvim_set_hl(0, "TelescopeMatching", { fg="#87afaf" })
+      vim.api.nvim_set_hl(0, "TelescopeNormal", { bg="#1e1e1e", fg="#1e1e1e" })
+      vim.api.nvim_set_hl(0, "TelescopeBorder", { bg="#1e1e1e", fg="#1e1e1e" })
+      vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg="#1e1e1e", fg="#1e1e1e" })
+      vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg="#1e1e1e", fg="#cdd6f4" })
+      vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg="#1e1e1e", fg="#1e1e1e" })
+      vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg="#1e1e1e", fg="#45475b" })
+      vim.api.nvim_set_hl(0, "TelescopeSelection", { bg="#252527", fg="#cdd6f4" })
+      vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg="#1e1e1e", fg="#1e1e1e" })
+      vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg="#1e1e1e", fg="#1e1e1e" })
+      vim.api.nvim_set_hl(0, "TelescopeMatching", { fg="#88b5fb" })
 
       -- Keymaps
       vim.keymap.set("n", "<leader>f", builtin.find_files, {})
