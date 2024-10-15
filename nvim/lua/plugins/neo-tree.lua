@@ -79,6 +79,10 @@ return {
     -- Apply options to Neo-tree
     require("neo-tree").setup(opts)
 
+   -- Set the background color of Neo-tree
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "#212121" })
+    vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "#212121" })
+
     -- Open Neo-tree in fullscreen at the current file's location
     vim.keymap.set("n", "-", ":Neotree reveal position=current<CR>")
 
