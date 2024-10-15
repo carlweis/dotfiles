@@ -3,7 +3,7 @@ return {
   config = function()
     require("dracula").setup({
        colors = {
-          bg = "#212121",
+          bg = "#242424",
           fg = "#F8F8F2",
           selection = "#44475A",
           comment = "#6272A4",
