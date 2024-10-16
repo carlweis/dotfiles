@@ -31,5 +31,8 @@ return {
     })
 
     vim.cmd("colorscheme dracula")
+
+    vim.api.nvim_set_hl(0, "VertSplit",    { fg = "#303030", bg = "none" })      -- Vertical split line color
+    vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#303030", bg = "none" })      -- Window separator for newer Neovim versions
   end,
 }
